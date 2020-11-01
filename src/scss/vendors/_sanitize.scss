@@ -1,0 +1,13 @@
+// Apply consistent, cross-browser default styling of HTML elements alongside useful defaults
+
+/*
+  Dart sass only looks for explict paths
+  https://github.com/sass/dart-sass/issues/615
+
+  If you are using Node Sass, you would be able to use '@import '~module'.
+
+  Why am I not using Node Sass?
+  Well...because node-sass is deprecated:
+  https://github.com/sass/node-sass
+*/
+@use '../../../node_modules/sanitize.css/sanitize.css';

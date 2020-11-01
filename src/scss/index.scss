@@ -1,0 +1,20 @@
+/*
+  Structure based on Hugo Giraudel's sass boilerplate
+  https://github.com/HugoGiraudel/sass-boilerplate
+*/
+
+@charset "UTF-8";
+
+/* Vendors */
+@import 'vendors/reset',
+  'vendors/sanitize';
+
+/* Configurations and helpers */
+@import 'abstracts/variables',
+  'abstracts/mixins',
+  'abstracts/breakpoints';
+
+/* Base styles */
+@import 'base/base',
+  'base/fonts',
+  'base/typography';

@@ -1,0 +1,51 @@
+/* stylelint-disable */
+
+/*
+  This file tests Next-Gen CSS using postcss-preset-env
+  This includes tests for autoprefixer (included with postcss-preset-env)
+
+  Test code modified from https://preset-env.cssdb.org/playground
+*/
+@import "_mixins.css";
+
+@media (--viewport-medium) {
+  :root {
+    --mainColor: beige;
+    --secondaryColor: lab(32.5 38.5 -47.6 / 90%);
+  }
+
+  html {
+    overflow: hidden auto;
+  }
+
+  body {
+    color: var(--mainColor);
+    background: linear-gradient(to bottom, grey, black);
+    background-color: rgba(0, 0, 0, 0.9);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  :--heading {
+    font-weight: bold;
+  }
+
+  a {
+    /*
+      NOTE: This comment is applicable only if you are using Node Sass.
+
+      Why not use the regular lowercase 'rgb' syntax?
+      rgb and rgba functions via node-sass misinterpret CSS variables as a single value instead of their output
+      https://github.com/sass/node-sass/issues/2251
+
+      Using lowercase 'rgb' is recognized by css
+      https://twitter.com/anatudor/status/963758591529365504
+    */
+    background-color: unset;
+    color: rgb(0 0 100% / 90%);
+
+    &:hover {
+      color: rebeccapurple;
+    }
+  }
+}

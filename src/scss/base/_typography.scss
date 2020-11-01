@@ -1,0 +1,64 @@
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  @include left-adjusted-center;
+
+  font-size: $h2-font-size;
+
+  @include md {
+    @include center;
+  }
+}
+
+// bullet alignment
+ul {
+  margin-left: $default-margin;
+}
+
+// make text a little bigger
+p,
+li {
+  font-size: $default-font-size;
+}
+
+// basic styling for links
+a {
+  background-color: #f5f5dc;
+  color: $light-blue;
+  font-weight: bold;
+
+  @include on-event {
+    color: $dark-blue;
+  }
+}
+
+main,
+section {
+  margin-bottom: $default-margin;
+
+  @include md {
+    @include left-adjusted-center;
+
+    width: 700px;
+  }
+}
+
+header,
+footer,
+.center {
+  @include md {
+    @include center;
+  }
+}
+
+img {
+  height: 100px;
+  margin-bottom: $default-margin;
+  width: 100px;
+
+  @include md {
+    @include left-adjusted-center;
+  }
+}
