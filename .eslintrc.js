@@ -1,6 +1,8 @@
 module.exports = {
   // Plugins that provide the processors to parse code for linting
   plugins: ["prettier"],
+  // files to exclude
+  ignorePatterns: ["dist/**", "scripts/**"],
   // A wrapper around the Babel parser that makes it compatible with ESLint.
   parser: "@babel/eslint-parser",
   extends: [

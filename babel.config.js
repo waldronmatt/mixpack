@@ -32,6 +32,11 @@ module.exports = (api) => {
             ? { node: "current" }
             : { chrome: "58", ie: "11" },
         },
+        /*
+          Externalise references to helpers and builtins, automatically
+          polyfilling your code without polluting globals
+        */
+        "@babel/plugin-transform-runtime",
       ],
     ],
   };

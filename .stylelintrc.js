@@ -17,6 +17,8 @@ module.exports = {
       // specify the ordering of things, e.g. properties within declaration blocks
       "stylelint-order",
     ],
+    // files to exclude
+    ignoreFiles: ["dist/**"],
     rules: {
       "at-rule-no-unknown": null,
       "scss/at-rule-no-unknown": true,
