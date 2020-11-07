@@ -1,10 +1,14 @@
 # MixPack
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/981f8252-c7bd-4215-8b05-60aee8402a2d/deploy-status)](https://app.netlify.com/sites/mixpack/deploys)
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/waldronmatt/mixpack)
+
 ![webpack](https://img.shields.io/badge/webpack-4.44.1-green)
 
 ## Introduction
 
-A mixed TypeScript/JavaScript Webpack boilerplate with Express.
+A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to see it live on Netlify](https://mixpack.netlify.app).
 
 ## Why Use MixPack?
 
@@ -172,3 +176,4 @@ MIT
 
 - Ben Grunfeld's [Expack](https://github.com/bengrunfeld/expack)
 - Amina's [Jest mock examples](https://github.com/BulbEnergy/jest-mock-examples)
+- Mark Tse's [Netlify Express](https://github.com/neverendingqs/netlify-express)
