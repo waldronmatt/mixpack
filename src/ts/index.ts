@@ -2,8 +2,8 @@
 
 // https://github.com/BulbEnergy/jest-mock-examples/tree/master/class-mock
 
-import { BasicMath } from "./BasicMath";
-import { ComplexMath } from "./ComplexMath";
+import { BasicMath } from "./test-scripts/BasicMath";
+import { ComplexMath } from "./test-scripts/ComplexMath";
 
 const basicMath = new BasicMath();
 const complexMath = new ComplexMath();
