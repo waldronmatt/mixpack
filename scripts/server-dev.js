@@ -7,10 +7,14 @@ import paths from './paths';
 
 // setup
 const app = express();
-const compiler = webpack(config);
+/*
+  we have to pass webpack mode manually because we are calling webpack.config.dev
+  via the webpack-dev-middleware, thus, the mode argv does not get passed directly from package.json
+*/
+const compiler = webpack(config(null, 'development'));
 
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
+  publicPath: config(null, 'development').output.publicPath
 }));
 
 app.use(webpackHotMiddleware(compiler));

@@ -42,7 +42,7 @@ Build and serve for production:
 
 Run the server
 
-        npm run start
+        npm run serve
 
 Create webp images:
 
@@ -96,6 +96,7 @@ Visualize Webpack output
 - babel-loader
 - ts-loader
 - file-loader
+- url-loader
 
 ### Plugins
 - File Processing
@@ -124,6 +125,7 @@ Visualize Webpack output
     - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
 - PostCSS: automate routine CSS operations using JavaScript
   - postcss-preset-env: transpile modern CSS into browser recognizable CSS
+  - postcss-import: consume local files, node modules or web_modules
   - Autoprefixer: automatically add vendor prefixes to styles (included with postcss-preset-env)
 - Browserlist: share target browsers between different front-end tools
 - Core-js: JavaScript polyfill library

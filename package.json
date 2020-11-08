@@ -10,7 +10,7 @@
     "analyze": "webpack --json --config ./scripts/webpack.prod.js > stats.json && webpack-bundle-analyzer --port 8080 stats.json",
     "dev": "rm -rf dist && webpack --mode development --config ./scripts/webpack.server.config.js && webpack --mode development --config ./scripts/webpack.dev.js && node ./dist/server.js",
     "build": "rm -rf dist && webpack --mode production --config ./scripts/webpack.server.config.js && webpack --mode production --config ./scripts/webpack.prod.js",
-    "start": "node ./dist/server.js"
+    "serve": "node ./dist/server.js"
   },
   "keywords": [
     "mixpack",

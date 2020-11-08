@@ -1,12 +1,10 @@
 // https://webpack.js.org/configuration/node/
-
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
   const SERVER_PATH = (argv.mode === 'production') ? './scripts/server-prod.js' : './scripts/server-dev.js';
 
-  return (
-    {
+  return {
       entry: {
         server: SERVER_PATH,
       },
@@ -32,5 +30,4 @@ module.exports = (env, argv) => {
         nodeExternals()
       ],
     }
-  )
 }
