@@ -3,7 +3,7 @@ import express from 'express';
 /*
   Comment out code below for server-enabled Express without Netlify
 */
-//import serverless from 'serverless-http';
+import serverless from 'serverless-http';
 /*
   ------------------------------------------------------
 */
@@ -17,7 +17,7 @@ app.use(express.static(__dirname));
 /*
   Comment out code below for server-enabled Express without Netlify
 */
-//app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 /*
   ------------------------------------------------------
 */
@@ -35,7 +35,7 @@ app.listen(paths.PORT, () => {
 /*
   Comment out code below for server-enabled Express without Netlify
 */
-//module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
 /*
   ------------------------------------------------------
 */
