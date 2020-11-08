@@ -117,18 +117,20 @@ Visualize Webpack output
   - imagemin/imagemin-webp - (non-Webpack Plugins)
 
 ### Transpilers/Tools
-- Babel (@babel/core): transpile modern JavaScript into browser recognizable JavaScript
+- Babel: transpile modern JavaScript into browser recognizable JavaScript
   - @babel/preset-env: a collection of babel plugins with smart defaults
   - Plugins
     - @babel/plugin-proposal-class-properties: transforms static class properties
+    - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
 - PostCSS: automate routine CSS operations using JavaScript
   - postcss-preset-env: transpile modern CSS into browser recognizable CSS
-  - Autoprefixer: automatically add vendor prefixes to styles
+  - Autoprefixer: automatically add vendor prefixes to styles (included with postcss-preset-env)
 - Browserlist: share target browsers between different front-end tools
 - Core-js: JavaScript polyfill library
 
-### Express
-- Express: web framework for Node.js
+### Back-end Tools
+- Express: server framework for Node.js
+- serverless-http: allows you to 'wrap' your API for serverless use (used for hosting on Netlify)
 
 ### Testing
 - Jest - JavaScript testing framework
@@ -153,7 +155,7 @@ Visualize Webpack output
     - eslint-config-prettier
     - plugin:@typescript-eslint/recommended
     - eslint-config-airbnb-typescript
-- StyleLint: Stylesheet linter
+- StyleLint: stylesheet linter
   - Plugins
     - stylelint-scss
     - stylelint-order
