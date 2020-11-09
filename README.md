@@ -4,7 +4,7 @@
 
 A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to see it live on Netlify](https://mixpack.netlify.app).
 
-![](logo.png)
+![](repo-logo.png)
 
 ## Introduction
 
