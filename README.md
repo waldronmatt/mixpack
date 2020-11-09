@@ -2,21 +2,25 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/981f8252-c7bd-4215-8b05-60aee8402a2d/deploy-status)](https://app.netlify.com/sites/mixpack/deploys) ![webpack](https://img.shields.io/badge/webpack-4.44.1-green)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/waldronmatt/mixpack)
+A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to see it live on Netlify](https://mixpack.netlify.app).
+
+![](logo.png)
 
 ## Introduction
 
-A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to see it live on Netlify](https://mixpack.netlify.app).
+Mixpack sets out to provide an all-in-one Webpack boilerplate solution using core frontend technologies and sensible optimization defaults.
 
 ## Why Use MixPack?
-
-Mixpack sets out to provide an all-in-one Webpack boilerplate solution using core frontend technologies and sensible optimization defaults.
 
 Easily mix TypeScript and ES6+ JavaScript alongside Sass and Next-Gen CSS.
 
 Express is chosen over Webpack's Dev Server to support backend Node.js applications.
 
 Jest is chosen as the default testing framework for its integration with Babel, TypeScript, and Node.js.
+
+## Fork and Launch
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/waldronmatt/mixpack)
 
 ## Installation
         
@@ -102,6 +106,7 @@ Visualize Webpack output
 - File Processing
   - MiniCssExtractPlugin
   - HtmlWebPackPlugin
+  - PreloadWebpackPlugin
   - FaviconsWebpackPlugin
 - Minifiers
   - TerserPlugin
@@ -120,9 +125,9 @@ Visualize Webpack output
 ### Transpilers/Tools
 - Babel: transpile modern JavaScript into browser recognizable JavaScript
   - @babel/preset-env: a collection of babel plugins with smart defaults
+  - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
   - Plugins
     - @babel/plugin-proposal-class-properties: transforms static class properties
-    - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
 - PostCSS: automate routine CSS operations using JavaScript
   - postcss-preset-env: transpile modern CSS into browser recognizable CSS
   - postcss-import: consume local files, node modules or web_modules

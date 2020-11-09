@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -40,6 +41,10 @@ module.exports = (env, argv) => {
       main: [
         './src/js/index.js',
         './src/ts/index.ts',
+      ],
+      // webpack code splitting example file
+      examples: [
+        './src/js/examples.js',
       ],
     },
     output: {
@@ -125,8 +130,7 @@ module.exports = (env, argv) => {
               options: {
                 /*
                   the image is converted to base64 format below the specified limit
-
-                  Note: If below the limit, the image will default to png despite a webp scrset
+                  Note: If below the limit, the image will default to png scrset
                 */
                 limit: 8192,
                 name: isProduction ? '[name].[contenthash:8].[ext]' : '[name].[ext]',
@@ -163,6 +167,14 @@ module.exports = (env, argv) => {
           'viewport': 'width=device-width',
         },
         base: '/',
+      }),
+      new PreloadWebpackPlugin({
+        rel: 'preload',
+        include: ['_preload-print'],
+      }),
+      new PreloadWebpackPlugin({
+        rel: 'prefetch',
+        include: ['_prefetch-print'],
       }),
     ],
     performance : {

@@ -58,7 +58,7 @@ module.exports = (env, argv) => {
         }),
       ],
       // Webpack will identify any code it thinks isn’t being used and mark it during the initial bundling step
-      usedExports: false, // Set TRUE to enable tree-shaking
+      usedExports: true, // Set TRUE to enable tree-shaking
       /*
         SplitChunks finds modules which are shared between chunks and splits them
         into separate chunks to reduce duplication or separate vendor modules from application modules.

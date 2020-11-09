@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 // https://github.com/BulbEnergy/jest-mock-examples/tree/master/class-mock
-
 import { BasicMath } from "./test-scripts/BasicMath";
 import { ComplexMath } from "./test-scripts/ComplexMath";
 

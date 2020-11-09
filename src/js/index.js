@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 import "../scss/index.scss";
 import "../css/index.css";
-import "./polyfills";
 
 // https://github.com/BulbEnergy/jest-mock-examples/tree/master/class-mock
-
 import { BasicMath } from "./test-scripts/BasicMath";
 import { ComplexMath } from "./test-scripts/ComplexMath";
+
+/* SPLITCHUNCKS - COMMON.JS EXAMPLE */
+import sharedModule from "./examples/_splitchuncks-common";
 
 const basicMath = new BasicMath();
 const complexMath = new ComplexMath();
@@ -28,3 +29,5 @@ console.log(
   "%c Next-Gen CSS on mobile breakpoint! ",
   "background: lightblue; color: black; display: block;"
 );
+
+sharedModule();
