@@ -2,8 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
@@ -20,42 +19,22 @@ module.exports = (env, argv) => {
     },
     plugins: [
       // generate optimized favicons for different devices
-      new FaviconsWebpackPlugin(),
+      new FaviconsWebpackPlugin({
+        // remove mode to enable default 'webp' for comprehensive favicon generation
+        mode: 'light',
+      }),
       // where the compiled scss is saved to
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash:8].css',
       }),
-      // compress images
-      new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     ],
     optimization: {
       minimize: true,
       minimizer: [
-        // minimize js
-        /*
-          Are you getting a 'TypeError: Cannot read property 'javascript' of undefined' from terser when running a build?
-          Was it because you upgraded? If so, downgrade back to v3.0.0
-        */
-        new TerserPlugin({
-          // https://github.com/webpack-contrib/terser-webpack-plugin/#remove-comments
-          terserOptions: {
-            output: {
-              comments: false,
-            },
-          },
-          extractComments: false,
-        }),
-        // minimize css
-        new OptimizeCSSAssetsPlugin({
-          // remove comments
-          cssProcessorPluginOptions: {
-            preset: ['default', {
-              discardComments: {
-                removeAll: true,
-              },
-            }],
-          },
-        }),
+        // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
+        '...',
+        new CssMinimizerPlugin(),
+        new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
       ],
       // Webpack will identify any code it thinks isn’t being used and mark it during the initial bundling step
       usedExports: true, // Set TRUE to enable tree-shaking

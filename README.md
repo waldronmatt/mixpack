@@ -1,6 +1,6 @@
 # MixPack
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/981f8252-c7bd-4215-8b05-60aee8402a2d/deploy-status)](https://app.netlify.com/sites/mixpack/deploys) ![webpack](https://img.shields.io/badge/webpack-4.44.1-green)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/981f8252-c7bd-4215-8b05-60aee8402a2d/deploy-status)](https://app.netlify.com/sites/mixpack/deploys) ![webpack](https://img.shields.io/badge/webpack-5.0.0-green)
 
 A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to see it live on Netlify](https://mixpack.netlify.app).
 
@@ -85,9 +85,6 @@ Visualize Webpack output
 - webpack: module and asset bundler
 - webpack-cli: command line interface for Webpack
 - webpack-merge: simplify development/production configuration
-- webpack-hot-middleware: add hot-reloading capabilities to Express without webpack-dev-server
-- webpack-dev-middleware: serves the files emitted from Webpack over Express.
-- webpack-livereload-plugin: trigger reloads from Webpack's build pipeline for html includes inside EJS template
 - webpack-node-externals: exclude node modules in Webpack
 
 ### Loaders
@@ -109,18 +106,15 @@ Visualize Webpack output
   - PreloadWebpackPlugin
   - FaviconsWebpackPlugin
 - Minifiers
-  - TerserPlugin
-  - OptimizeCSSAssetsPlugin
+  - TerserPlugin (Comes bundled with Webpack)
+  - CssMinimizerWebpackPlugin
   - ImageminPlugin
 - Linters
   - ESLintPlugin
   - StylelintPlugin
-- Build Optimizers
-  - HardSourceWebpackPlugin
 - Miscellaneous
   - Webpack Bundle Analyzer
-  - LiveReloadPlugin (for EJS includes)
-  - imagemin/imagemin-webp - (non-Webpack Plugins)
+  - imagemin-webp - (separately generate webp images)
 
 ### Transpilers/Tools
 - Babel: transpile modern JavaScript into browser recognizable JavaScript
@@ -138,6 +132,7 @@ Visualize Webpack output
 ### Back-end Tools
 - Express: server framework for Node.js
 - serverless-http: allows you to 'wrap' your API for serverless use (used for hosting on Netlify)
+- webpack-dev-server: development server that provides live reloading
 
 ### Testing
 - Jest - JavaScript testing framework
