@@ -8,15 +8,11 @@ A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to s
 
 ## Introduction
 
-Mixpack sets out to provide an all-in-one Webpack boilerplate solution using core frontend technologies and sensible optimization defaults.
+Mix and match TypeScript and ES6+ JavaScript alongside Sass and Next-Gen CSS using Express.
 
 ## Why Use MixPack?
 
-Easily mix TypeScript and ES6+ JavaScript alongside Sass and Next-Gen CSS.
-
-Express is chosen over Webpack's Dev Server to support backend Node.js applications.
-
-Jest is chosen as the default testing framework for its integration with Babel, TypeScript, and Node.js.
+Mixpack sets out to provide an all-in-one Webpack boilerplate solution using core frontend technologies and sensible optimization defaults.
 
 ## Fork and Launch
 
