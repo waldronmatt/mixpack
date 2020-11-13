@@ -8,15 +8,11 @@ A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to s
 
 ## Introduction
 
-Mixpack sets out to provide an all-in-one Webpack boilerplate solution using core frontend technologies and sensible optimization defaults.
+Mix and match TypeScript and ES6+ JavaScript alongside Sass and Next-Gen CSS using Express.
 
 ## Why Use MixPack?
 
-Easily mix TypeScript and ES6+ JavaScript alongside Sass and Next-Gen CSS.
-
-Express is chosen over Webpack's Dev Server to support backend Node.js applications.
-
-Jest is chosen as the default testing framework for its integration with Babel, TypeScript, and Node.js.
+Mixpack sets out to provide an all-in-one Webpack boilerplate solution using core frontend technologies and sensible optimization defaults.
 
 ## Fork and Launch
 
@@ -120,8 +116,7 @@ Visualize Webpack output
 - Babel: transpile modern JavaScript into browser recognizable JavaScript
   - @babel/preset-env: a collection of babel plugins with smart defaults
   - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
-  - Plugins
-    - @babel/plugin-proposal-class-properties: transforms static class properties
+  - @babel/plugin-proposal-class-properties: transforms static class properties
 - PostCSS: automate routine CSS operations using JavaScript
   - postcss-preset-env: transpile modern CSS into browser recognizable CSS
   - postcss-import: consume local files, node modules or web_modules
@@ -132,7 +127,7 @@ Visualize Webpack output
 ### Back-end Tools
 - Express: server framework for Node.js
 - serverless-http: allows you to 'wrap' your API for serverless use (used for hosting on Netlify)
-- webpack-dev-server: development server that provides live reloading
+- webpack-dev-server: development server that provides live/hot reloading
 
 ### Testing
 - Jest - JavaScript testing framework
