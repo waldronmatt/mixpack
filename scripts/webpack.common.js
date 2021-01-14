@@ -117,37 +117,15 @@ module.exports = (env, argv) => {
             },
           ],
         },
-        /*
-          url-loader allows you to conditionally inline a file as base-64 data URL if they are smaller than a given threshold.
-          This can reduce the amount of HTTP requests for trivial files. If the file is larger than the threshold,
-          it automatically falls back to file-loader
-        */
+        // asset/resource emits a separate file and exports the URL. Previously achievable by using file-loader
         {
           test: /\.(jpe?g|png|gif|svg|webp)$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                /*
-                  the image is converted to base64 format below the specified limit
-                  Note: If below the limit, the image will default to png scrset
-                */
-                limit: 8192,
-                name: isProduction ? '[name].[contenthash:8].[ext]' : '[name].[ext]',
-              },
-            },
-          ],
+          type: 'asset/inline',
         },
+        // asset/inline exports a data URI of the asset. Previously achievable by using url-loader
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: isProduction ? '[name].[contenthash:8].[ext]' : '[name].[ext]',
-              },
-            },
-          ],
+          type: 'asset/resource',
         },
       ],
     },

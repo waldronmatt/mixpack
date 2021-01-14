@@ -92,8 +92,6 @@ Visualize Webpack output
 - html-loader
 - babel-loader
 - ts-loader
-- file-loader
-- url-loader
 
 ### Plugins
 - File Processing
