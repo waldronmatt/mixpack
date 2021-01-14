@@ -117,12 +117,12 @@ module.exports = (env, argv) => {
             },
           ],
         },
-        // asset/resource emits a separate file and exports the URL. Previously achievable by using file-loader
+        // asset/inline exports a data URI of the asset. Previously achievable by using url-loader
         {
           test: /\.(jpe?g|png|gif|svg|webp)$/,
           type: 'asset/inline',
         },
-        // asset/inline exports a data URI of the asset. Previously achievable by using url-loader
+        // asset/resource emits a separate file and exports the URL. Previously achievable by using file-loader
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           type: 'asset/resource',
