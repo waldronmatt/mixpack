@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
     plugins: [
       // generate optimized favicons for different devices
       new FaviconsWebpackPlugin({
-        // remove mode to enable default 'webp' for comprehensive favicon generation
+        // remove mode to enable default 'webapp' for comprehensive favicon generation
         mode: 'light',
       }),
       // where the compiled scss is saved to
