@@ -4,7 +4,8 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = (env, argv) => {
   return {
       entry: {
-        server: './scripts/server-prod.js',
+        // change file to 'server-prod.js' for server-enabled express
+        server: './scripts/serverless-prod.js',
       },
       /*
         if you don't put this as, __dirname and __filename return blank or /

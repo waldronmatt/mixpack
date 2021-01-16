@@ -32,16 +32,19 @@ Run dev environment:
 
         npm run dev
 
-### Production build
+### Production build (serverless with Netlify setup)
 
-Build and serve for production:
+Build and serve for production
 
         npm run build
 
 ### Other commands
 
-Run the server
+**Build and serve for production (server-enabled)
 
+**Note: First, point to server-prod.js in webpack.server.config.
+
+        npm run build
         npm run serve
 
 Create webp images:
