@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+</head>
+<body>
+  <%= require('./header.html') %>
+  <main>
+    <h2>Just another test page!</h2>
+    <p class="center"><a href="./index.html">Back to home page.</a></p>
+  </main>
+  <%= require('./footer.html') %>
+</body>
+</html>

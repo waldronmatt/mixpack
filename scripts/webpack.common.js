@@ -146,6 +146,18 @@ module.exports = (env, argv) => {
         },
         base: '/',
       }),
+      new HtmlWebPackPlugin({
+        filename: "test.html",
+        title: "My Boilerplate App Test Page",
+        description: "app boilerplate test page",
+        template: "./src/pages/test.ejs",
+        excludeChunks: ['server'],
+        meta: {
+          'keywords': 'webpack, express',
+          'viewport': 'width=device-width',
+        },
+        base: '/',
+      }),
       new PreloadWebpackPlugin({
         rel: 'preload',
         include: ['_preload-print'],
