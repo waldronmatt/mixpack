@@ -138,7 +138,7 @@ module.exports = (env, argv) => {
         filename: "index.html",
         title: "My Boilerplate App",
         description: "app boilerplate",
-        template: "./src/pages/template.ejs",
+        template: "./src/pages/index.ejs",
         excludeChunks: ['server'],
         meta: {
           'keywords': 'webpack, express',
