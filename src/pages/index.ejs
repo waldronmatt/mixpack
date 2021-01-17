@@ -5,7 +5,7 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <%= require('./header.html') %>
+  <%= require('html-loader!./header.html') %>
   <main>
     <h2>A mixed TypeScript/JavaScript Webpack boilerplate with Express.</h2>
     <p class="center"><a href="./test.html">Go to test page.</a></p>
@@ -22,6 +22,6 @@
       <li>Code Splitting example files included!</li>
     </ul>
   </section>
-  <%= require('./footer.html') %>
+  <%= require('html-loader!./footer.html') %>
 </body>
 </html>

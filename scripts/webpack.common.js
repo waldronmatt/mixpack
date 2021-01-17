@@ -71,32 +71,6 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.html$/,
-          use: [
-            {
-              loader: "html-loader",
-              options: {
-                attributes: {
-                  list: [
-                    // All default supported tags and attributes
-                    '...',
-                    {
-                      tag: 'img',
-                      attribute: 'data-src',
-                      type: 'src',
-                    },
-                    {
-                      tag: 'img',
-                      attribute: 'data-srcset',
-                      type: 'srcset',
-                    },
-                  ],
-                },
-              },
-            },
-          ],
-        },
-        {
           test: /\.css$/,
           use: styleLoaders,
         },

@@ -5,11 +5,11 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <%= require('./header.html') %>
+  <%= require('html-loader!./header.html') %>
   <main>
     <h2>This is a test page!</h2>
     <p class="center"><a href="./index.html">Back to home page.</a></p>
   </main>
-  <%= require('./footer.html') %>
+  <%= require('html-loader!./footer.html') %>
 </body>
 </html>
