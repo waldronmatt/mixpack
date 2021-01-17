@@ -41,6 +41,8 @@ module.exports = (env, argv) => {
       compress: true,
       hot: true,
       port: 8080,
+      // useful for debugging
+      // writeToDisk: true,
     },
     plugins: [
       new ESLintPlugin({
