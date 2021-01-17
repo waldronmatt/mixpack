@@ -12,6 +12,9 @@
 */
 
 import "core-js/features/promise";
+import "core-js/features/array/includes";
+import "core-js/features/array/map";
+import "core-js/features/string/includes";
 
 /* SPLITCHUNCKS VENDOR EXAMPLE */
 /*
@@ -36,10 +39,24 @@ const splitchuncksVendor = () => {
     "background: yellow; color: black; display: block;"
   );
   console.log(
+    "%c You should also see 'true', 'true', and '2' output below.",
+    "background: yellow; color: black; display: block;"
+  );
+  console.log(
     "Webpack will generate a vendors.js file because the import path is a dependency from node_modules."
   );
   console.log(
     "NOTE: The promise polyfill is needed to resolve webpack dynamic imports because import() calls use promises internally."
+  );
+
+  // polyfill tests
+  console.log([1, 2, 3].includes(2));
+  console.log("foobarbaz".includes("bar"));
+  console.log(
+    new Map([
+      ["a", 1],
+      [42, 2],
+    ]).size
   );
 };
 
