@@ -10,8 +10,6 @@ module.exports = {
     "postcss-preset-env": {
       // use the most experiemental css features
       stage: 0,
-      // The browsers option determines which polyfills are required based upon the browsers you are supporting.
-      browsers: "last 2 versions",
     },
   },
 };
