@@ -35,6 +35,23 @@ module.exports = (env, argv) => {
     },
   ];
 
+  // feed an array of page names to dynamically generate pages with attributes
+  let multipleHtmlWebPackPlugins = ['index', 'test'].map(name => {
+    return new HtmlWebPackPlugin({
+      filename: `${name}.html`,
+      // make first letter of word uppercase
+      title: `${name.charAt(0).toUpperCase() + name.slice(1)} | Mixpack`,
+      template: `./src/pages/${name}.ejs`,
+      excludeChunks: ['server'],
+      meta: {
+        'description': `A mixed TypeScript/JavaScript Webpack boilerplate with Express.`,
+        'keywords': 'webpack, express, typescript, javascript',
+        'viewport': 'width=device-width',
+      },
+      base: '/',
+    })
+  });
+
   return {
     target: 'web',
     entry: {
@@ -134,30 +151,6 @@ module.exports = (env, argv) => {
       extensions: ['.ts', '.js'],
     },
     plugins: [
-      new HtmlWebPackPlugin({
-        filename: "index.html",
-        title: "My Boilerplate App",
-        description: "app boilerplate",
-        template: "./src/pages/index.ejs",
-        excludeChunks: ['server'],
-        meta: {
-          'keywords': 'webpack, express',
-          'viewport': 'width=device-width',
-        },
-        base: '/',
-      }),
-      new HtmlWebPackPlugin({
-        filename: "test.html",
-        title: "My Boilerplate App Test Page",
-        description: "app boilerplate test page",
-        template: "./src/pages/test.ejs",
-        excludeChunks: ['server'],
-        meta: {
-          'keywords': 'webpack, express',
-          'viewport': 'width=device-width',
-        },
-        base: '/',
-      }),
       new PreloadWebpackPlugin({
         rel: 'preload',
         include: ['_preload-print'],
@@ -166,7 +159,7 @@ module.exports = (env, argv) => {
         rel: 'prefetch',
         include: ['_prefetch-print'],
       }),
-    ],
+    ].concat(multipleHtmlWebPackPlugins),
     performance : {
       hints : 'warning',
     },
