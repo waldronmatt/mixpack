@@ -4,13 +4,21 @@ import paths from './paths';
 
 // setup
 const app = express();
+
+// use express.static() to serve files from several directories
 app.use(express.static(__dirname));
 
-app.use('/.netlify/functions/server', router);  // path must route to lambda
+// path must route to lambda
+app.use('/.netlify/functions/server', router);
 
 // config
-app.get('*', (req, res) => {
-    res.sendFile(paths.HTML_FILE);
+app.get('/', (req, res) => {
+  res.sendFile(paths.INDEX_FILE);
+});
+
+// The 404 Route (ALWAYS Keep this as the last route)
+app.get("*", (req, res) => {
+  res.sendFile(paths.ERROR_FILE);
 });
 
 app.listen(paths.PORT, () => {

@@ -36,7 +36,7 @@ module.exports = (env, argv) => {
   ];
 
   // feed an array of page names to dynamically generate pages with attributes
-  let multipleHtmlWebPackPlugins = ['index', 'test'].map(name => {
+  let multipleHtmlWebPackPlugins = ['index', 'test', '404'].map(name => {
     return new HtmlWebPackPlugin({
       filename: `${name}.html`,
       // make first letter of word uppercase
