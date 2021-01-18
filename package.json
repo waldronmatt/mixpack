@@ -1,6 +1,6 @@
 {
   "name": "mixpack",
-  "version": "2.0.0",
+  "version": "2.3.10",
   "description": "A mixed TypeScript/JavaScript Webpack boilerplate with Express.",
   "main": "src/js/index.js",
   "scripts": {

@@ -62,9 +62,11 @@ Visualize Webpack output
 ## Features
 - Transpile TypeScript, Next-Gen JavaScript, Sass, and Next-Gen CSS
 - Testing support for a mixed JS/TS environment using Jest
-- Linting support for a mixed JS/TS environment using Eslint
-- Integrates the [Express + Webpack (Expack) boilerplate](https://github.com/bengrunfeld/expack) with hot-reloading.
+- Linting support for a mixed JS/TS and CSS/Sass environment using Eslint and Stylelint
+- Integrates the [Express + Webpack (Expack) boilerplate](https://github.com/bengrunfeld/expack)
+- Includes an organized [sass boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
 - Optimized Webpack configurations
+- Includes code splitting examples
 
 ## Technologies
 - Webpack
@@ -79,6 +81,10 @@ Visualize Webpack output
 - EJS/HTML
 
 ## Dependency Deep-Dive
+
+## Production dependencies
+- core.js - polyfill library to support older browsers
+- sanitize.css - css normalization library to set default, cross-browser stylings
 
 ### Webpack
 - webpack: module and asset bundler
@@ -117,13 +123,13 @@ Visualize Webpack output
 - Babel: transpile modern JavaScript into browser recognizable JavaScript
   - @babel/preset-env: a collection of babel plugins with smart defaults
   - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
+  - @babel/runtime: babel's modular runtime helpers
   - @babel/plugin-proposal-class-properties: transforms static class properties
 - PostCSS: automate routine CSS operations using JavaScript
   - postcss-preset-env: transpile modern CSS into browser recognizable CSS
   - postcss-import: consume local files, node modules or web_modules
   - Autoprefixer: automatically add vendor prefixes to styles (included with postcss-preset-env)
 - Browserlist: share target browsers between different front-end tools
-- Core-js: JavaScript polyfill library
 
 ### Back-end Tools
 - Express: server framework for Node.js
@@ -175,3 +181,4 @@ MIT
 - Ben Grunfeld's [Expack](https://github.com/bengrunfeld/expack)
 - Amina's [Jest mock examples](https://github.com/BulbEnergy/jest-mock-examples)
 - Mark Tse's [Netlify Express](https://github.com/neverendingqs/netlify-express)
+- Hugo Giraudel's [Sass Boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
