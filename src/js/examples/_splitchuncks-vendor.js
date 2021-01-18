@@ -11,10 +11,10 @@
   and regenerator-runtime/runtime (needed to use transpiled generator functions)
 */
 
-// import "core-js/features/promise";
-// import "core-js/features/array/includes";
-// import "core-js/features/array/map";
-// import "core-js/features/string/includes";
+import "core-js/features/promise";
+import "core-js/features/array/includes";
+import "core-js/features/array/map";
+import "core-js/features/string/includes";
 
 /* SPLITCHUNCKS VENDOR EXAMPLE */
 /*

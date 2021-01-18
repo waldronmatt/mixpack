@@ -28,12 +28,14 @@ module.exports = (api) => {
           */
           debug: true,
           /*
-            import and export do not change to require and module.exports (CJS) Note: (Meets Tree Shaking Condition)
-            https://medium.com/naver-fe-platform/tree-shaking-in-webpack-50fa2ca446f1
+            By setting modules to false, we are telling babel not to compile our module code.
+            This will lead to babel preserving our existing es2015 import/export statements.
+            Webpack only supports es2015 import/export statements for tree-shaking
+            https://medium.com/@craigmiller160/how-to-fully-optimize-webpack-4-tree-shaking-405e1c76038
           */
           modules: false,
           // allow importing core-js in entrypoint and use browserlist to select polyfills
-          useBuiltIns: "usage",
+          useBuiltIns: "entry",
           // exlude transformations that make code slower
           exclude: ["transform-typeof-symbol"],
         },
