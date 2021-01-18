@@ -10,9 +10,8 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 module.exports = (env, argv) => {
   const config = {
     mode: argv.mode,
-    // Map your compiled code back to your original source code.
+    // map your compiled code back to your original source code.
     devtool: 'inline-source-map',
-    target: 'web',
     output: {
       filename: '[name].js',
       // specify chunck path for code splitted files

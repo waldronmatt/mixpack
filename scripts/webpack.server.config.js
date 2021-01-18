@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
         server: './scripts/serverless-prod.js',
       },
       /*
-        if you don't put this as, __dirname and __filename return blank or /
+        If you don't put this as, __dirname and __filename return blank or /
         NOTE: Need this when working with express, otherwise the build fails
 
         https://github.com/webpack/webpack/issues/1599#issuecomment-186841345

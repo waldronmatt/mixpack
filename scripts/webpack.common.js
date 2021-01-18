@@ -2,16 +2,18 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const { capitilizeFirstLetterOfWord } = require('./functions');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
+  // because css and sass files share similar loader configs, let's build it here and call it
   let styleLoaders = [
     {
       loader: isProduction
-        // Extracts the compiled css from js (overrides default Webpack behavior)
+        // extracts the compiled css from js (overrides default Webpack behavior)
         ? MiniCssExtractPlugin.loader
-        // interprets import and url like import/require and will resolve them
+        // inject CSS into the DOM
         : 'style-loader',
     },
     // interprets import and url like import/require and will resolve them
@@ -20,7 +22,6 @@ module.exports = (env, argv) => {
     },
     /*
       loader for webpack to process css with PostCSS
-
       postcss-loader should be placed after css-loader and style-loader,
       but before other preprocessor loaders like e.g sass|less|stylus-loader
       https://github.com/webpack-contrib/postcss-loader#config-cascade
@@ -39,8 +40,7 @@ module.exports = (env, argv) => {
   let multipleHtmlWebPackPlugins = ['index', 'test', '404'].map(name => {
     return new HtmlWebPackPlugin({
       filename: `${name}.html`,
-      // make first letter of word uppercase
-      title: `${name.charAt(0).toUpperCase() + name.slice(1)} | Mixpack`,
+      title: `${capitilizeFirstLetterOfWord(name)} | Mixpack`,
       template: `./src/pages/${name}.ejs`,
       excludeChunks: ['server'],
       meta: {
@@ -53,7 +53,8 @@ module.exports = (env, argv) => {
   });
 
   return {
-    target: 'web',
+    // specify browser target for code output
+    target: ['web', 'es5'],
     entry: {
       main: [
         './src/js/index.js',
@@ -67,21 +68,22 @@ module.exports = (env, argv) => {
     output: {
       path: path.join(__dirname, '../dist'),
       publicPath: '/',
-       /*
-        I'm not sure why the "target" above doesn't bundle to 'IE11' compatible code
-        We need to specify the features to disable manually, so we don't, for example,
-        get arrow functions in the bundle output
+      /*
+        There's a bug with Webpack 5 not transpiling code that is IE11 digestible
+        https://github.com/webpack/webpack/issues/11876
+        We need to specify features to disable manually for a correct bundle output
+        https://webpack.js.org/configuration/output/#outputenvironment
       */
       environment: {
-        // The environment supports arrow functions ('() => { ... }').
+        // the environment supports arrow functions ('() => { ... }').
         arrowFunction: false,
-        // The environment supports const and let for variable declarations.
+        // the environment supports const and let for variable declarations.
         const: false,
-        // The environment supports destructuring ('{ a, b } = obj').
+        // the environment supports destructuring ('{ a, b } = obj').
         destructuring: false,
-        // The environment supports an async import() function to import EcmaScript modules.
+        // the environment supports an async import() function to import EcmaScript modules.
         dynamicImport: false,
-        // The environment supports ECMAScript Module syntax to import ECMAScript modules (import ... from '...').
+        // the environment supports ECMAScript Module syntax to import ECMAScript modules (import ... from '...').
         module: false,
       },
     },
@@ -119,7 +121,8 @@ module.exports = (env, argv) => {
             {
               loader: 'ts-loader',
               options: {
-                transpileOnly: true, // For hot reloading,
+                // for hot reloading
+                transpileOnly: true,
                 experimentalWatchApi: true,
               },
             },
@@ -141,8 +144,6 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.ts', '.js'],
     },
-    // specify browser target for code output
-    target: ['web', 'es5'],
     plugins: [
       new PreloadWebpackPlugin({
         rel: 'preload',

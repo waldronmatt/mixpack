@@ -55,7 +55,13 @@ Run all tests:
 
         npm run test
 
-Visualize Webpack output
+Run all tests with additional test coverage information:
+
+        npm run coverage
+
+**Visualize Webpack output
+
+**Note: First, make sure debugging is disabled in babel.config.js
 
         npm run analyze
 

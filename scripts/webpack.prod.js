@@ -9,7 +9,6 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 module.exports = (env, argv) => {
   const config = {
     mode: argv.mode,
-    target: 'web',
     // disable for efficient prod builds and code reduction
     devtool: false,
     output: {
@@ -31,7 +30,7 @@ module.exports = (env, argv) => {
     optimization: {
       minimize: true,
       minimizer: [
-        // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
+        // for webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
         '...',
         new CssMinimizerPlugin(),
         new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
@@ -63,7 +62,7 @@ module.exports = (env, argv) => {
             // import file path containing node_modules
             test: /node_modules/,
             /*
-              the higher priority will determine where a module is placed
+              The higher priority will determine where a module is placed
               if it meets multiple conditions (both a shared and npm (vendor) module
 
               Prioritize vendor chuncks over commons
@@ -86,7 +85,7 @@ module.exports = (env, argv) => {
             */
             reuseExistingChunk: true,
             /*
-              enforce value is set to true to force SplitChunksPlugin to
+              Enforce value is set to true to force SplitChunksPlugin to
               form this chunk irrespective of the size of the chunk
             */
             enforce: true,
