@@ -33,7 +33,7 @@ module.exports = (api) => {
           */
           modules: false,
           // allow importing core-js in entrypoint and use browserlist to select polyfills
-          useBuiltIns: "entry",
+          useBuiltIns: "usage",
           // exlude transformations that make code slower
           exclude: ["transform-typeof-symbol"],
         },
