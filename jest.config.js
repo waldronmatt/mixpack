@@ -33,6 +33,8 @@ module.exports = {
     */
     "^.+\\.(js|jsx)?$": "babel-jest",
     // A TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.
-    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(ts|tsx)?$": "ts-jest",
   },
+  // ignore dependency folder for tests
+  transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };

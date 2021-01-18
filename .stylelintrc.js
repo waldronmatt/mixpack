@@ -17,8 +17,8 @@ module.exports = {
       // specify the ordering of things, e.g. properties within declaration blocks
       "stylelint-order",
     ],
-    // files to exclude
-    ignoreFiles: ["dist/**"],
+    // // files to exclude including: bundled files, jest coverage reports
+    ignoreFiles: ["dist/**", "coverage/**"],
     rules: {
       "at-rule-no-unknown": null,
       "scss/at-rule-no-unknown": true,
