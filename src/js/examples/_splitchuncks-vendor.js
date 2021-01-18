@@ -52,12 +52,13 @@ const splitchuncksVendor = () => {
   // polyfill tests
   console.log([1, 2, 3].includes(2));
   console.log("foobarbaz".includes("bar"));
-  console.log(
-    new Map([
-      ["a", 1],
-      [42, 2],
-    ]).size
-  );
+  const array = [1];
+  const map = new Map([
+    ["a", 1],
+    [42, 2],
+  ]);
+  map.set(array, 3).set(true, 4);
+  console.log(map.has(array));
 };
 
 export default splitchuncksVendor;
