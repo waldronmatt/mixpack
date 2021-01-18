@@ -82,7 +82,7 @@ Visualize Webpack output
 
 ## Dependency Deep-Dive
 
-## Production dependencies
+### Production dependencies
 - core.js - polyfill library to support older browsers
 - sanitize.css - css normalization library to set default, cross-browser stylings
 
