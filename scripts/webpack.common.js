@@ -67,6 +67,23 @@ module.exports = (env, argv) => {
     output: {
       path: path.join(__dirname, '../dist'),
       publicPath: '/',
+       /*
+        I'm not sure why the "target" above doesn't bundle to 'IE11' compatible code
+        We need to specify the features to disable manually, so we don't, for example,
+        get arrow functions in the bundle output
+      */
+      environment: {
+        // The environment supports arrow functions ('() => { ... }').
+        arrowFunction: false,
+        // The environment supports const and let for variable declarations.
+        const: false,
+        // The environment supports destructuring ('{ a, b } = obj').
+        destructuring: false,
+        // The environment supports an async import() function to import EcmaScript modules.
+        dynamicImport: false,
+        // The environment supports ECMAScript Module syntax to import ECMAScript modules (import ... from '...').
+        module: false,
+      },
     },
     module: {
       rules: [
@@ -126,25 +143,6 @@ module.exports = (env, argv) => {
     },
     // specify browser target for code output
     target: ['web', 'es5'],
-    /*
-      I'm not sure why the "target" above doesn't bundle to 'IE11' compatible code
-      We need to specify the features to disable manually, so we don't, for example,
-      get arrow functions in the bundle output
-    */
-    output: {
-      environment: {
-        // The environment supports arrow functions ('() => { ... }').
-        arrowFunction: false,
-        // The environment supports const and let for variable declarations.
-        const: false,
-        // The environment supports destructuring ('{ a, b } = obj').
-        destructuring: false,
-        // The environment supports an async import() function to import EcmaScript modules.
-        dynamicImport: false,
-        // The environment supports ECMAScript Module syntax to import ECMAScript modules (import ... from '...').
-        module: false,
-      },
-    },
     plugins: [
       new PreloadWebpackPlugin({
         rel: 'preload',
