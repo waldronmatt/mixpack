@@ -53,8 +53,11 @@ module.exports = (env, argv) => {
   });
 
   return {
-    // specify browser target for code output
-    target: ['web', 'es5'],
+    /*
+      specify browser target for code output
+      https://github.com/webpack/webpack-dev-server/issues/2758
+    */
+    target: 'web',
     entry: {
       main: [
         './src/js/index.js',
