@@ -1,13 +1,12 @@
 # editorconfig.org
+# config based on Bootstrap's: https://github.com/twbs/bootstrap/blob/main/.editorconfig
+
 root = true
 
 [*]
+charset = utf-8
+end_of_line = lf
 indent_size = 2
 indent_style = space
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
 insert_final_newline = true
-
-[*.md]
-trim_trailing_whitespace = false
+trim_trailing_whitespace = true

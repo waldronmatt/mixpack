@@ -27,11 +27,9 @@ module.exports = (env, argv) => {
         https://stackoverflow.com/questions/52322913/webpack-4-devserver-hmr-plus-full-reload-on-other-file-changes-like-views
       */
       before(app, server) {
-        chokidar.watch([
-          './src/pages/**/**'
-        ]).on('all', function() {
+        chokidar.watch(['./src/pages/**/**']).on('all', function () {
           server.sockWrite(server.sockets, 'content-changed');
-        })
+        });
       },
       historyApiFallback: true,
       contentBase: path.resolve(__dirname, '../dist'),
@@ -60,7 +58,7 @@ module.exports = (env, argv) => {
         The value 'single' instead creates a runtime file to be shared for all generated chunks.
         https://github.com/webpack/webpack-dev-server/issues/2792
       */
-      runtimeChunk: "single",
+      runtimeChunk: 'single',
     },
   };
   return merge(common(env, argv), config);

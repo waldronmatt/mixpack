@@ -1,4 +1,4 @@
-import { ComplexMath } from "./ComplexMath";
+import { ComplexMath } from './ComplexMath';
 
 // The docs say this variable needs to be called "mock..."
 // If you get "ReferenceError: ... is not defined" you can use "var" instead of "const"
@@ -9,14 +9,14 @@ const mockSum = jest.fn(() => 8);
 //   BasicMath: () => ({ sum: mockSum }),
 // }));
 
-jest.mock("./BasicMath", () => ({
+jest.mock('./BasicMath', () => ({
   BasicMath() {
     return { sum: mockSum };
   },
 }));
 
-describe("ComplexMath:class full mock with implementation", () => {
-  test("should return result based on sum mock", () => {
+describe('ComplexMath:class full mock with implementation', () => {
+  test('should return result based on sum mock', () => {
     const complexMath = new ComplexMath();
 
     expect(complexMath.avg(1, 1)).toEqual(4); // sum is mocked

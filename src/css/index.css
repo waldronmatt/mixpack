@@ -1,16 +1,14 @@
-/* stylelint-disable */
-
 /*
   This file tests Next-Gen CSS using postcss-preset-env
   This includes tests for autoprefixer (included with postcss-preset-env)
 
   Test code modified from https://preset-env.cssdb.org/playground
 */
-@import "_mixins.css";
+@import '_mixins.css';
 
 @media (--viewport-medium) {
   :root {
-    --mainColor: beige;
+    --mainColor: #f5f5dc;
     --secondaryColor: lab(32.5 38.5 -47.6 / 90%);
   }
 
@@ -19,11 +17,11 @@
   }
 
   body {
-    color: var(--mainColor);
-    background: linear-gradient(to bottom, grey, black);
+    background: linear-gradient(to bottom, #808080, #000);
+    background-attachment: fixed;
     background-color: rgba(0, 0, 0, 0.9);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    color: var(--mainColor);
   }
 
   :--heading {
@@ -45,7 +43,7 @@
     color: rgb(0 0 100% / 90%);
 
     &:hover {
-      color: rebeccapurple;
+      color: #639;
     }
   }
 }

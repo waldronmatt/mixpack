@@ -8,11 +8,9 @@
 
 const dynamicLoad = () => {
   if (document.querySelectorAll("[data-load='index']").length) {
-    import(
-      /* webpackChunkName: "_dynamic-load-print" */ "./_dynamic-load-print"
-    )
+    import(/* webpackChunkName: "_dynamic-load-print" */ './_dynamic-load-print')
       .then((module) => module.default())
-      .catch(() => "An error occurred while loading _dynamic-load-print");
+      .catch(() => 'An error occurred while loading _dynamic-load-print');
   }
 };
 

@@ -9,9 +9,7 @@
     &:active {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     &:hover,
     &:active {
       @content;

@@ -17,13 +17,13 @@ app.get('/', (req, res) => {
 });
 
 // The 404 Route (ALWAYS Keep this as the last route)
-app.get("*", (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(paths.ERROR_FILE);
 });
 
 app.listen(paths.PORT, () => {
-    console.log(`App listening to ${paths.PORT}....`);
-    console.log('Press Ctrl+C to quit.');
+  console.log(`App listening to ${paths.PORT}....`);
+  console.log('Press Ctrl+C to quit.');
 });
 
 module.exports.handler = serverless(app);

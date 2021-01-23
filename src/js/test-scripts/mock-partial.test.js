@@ -1,18 +1,18 @@
-import { BasicMath } from "./BasicMath";
-import { ComplexMath } from "./ComplexMath";
+import { BasicMath } from './BasicMath';
+import { ComplexMath } from './ComplexMath';
 
 // Mock partially
-jest.mock("./BasicMath", () => ({
+jest.mock('./BasicMath', () => ({
   BasicMath() {
     return {
       sum: () => 8,
-      divide: jest.requireActual("./BasicMath").BasicMath.prototype.divide,
+      divide: jest.requireActual('./BasicMath').BasicMath.prototype.divide,
     };
   },
 }));
 
-describe("ComplexMath:class partial mock", () => {
-  test("should return result based on mock sum without mocking everything", () => {
+describe('ComplexMath:class partial mock', () => {
+  test('should return result based on mock sum without mocking everything', () => {
     // Can also spy the class function
     // const spy = jest
     //   .spyOn(BasicMath.prototype, 'sum')
@@ -24,7 +24,7 @@ describe("ComplexMath:class partial mock", () => {
     // spy.mockRestore();
   });
 
-  test("should be able to see sum is mocked and divide is not", () => {
+  test('should be able to see sum is mocked and divide is not', () => {
     // const { BasicMath: ActualBasicMath } = jest.requireActual('./BasicMath');
     const basicMath = new BasicMath();
 

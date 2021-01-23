@@ -10,20 +10,14 @@
 */
 
 const splitchuncksCommon = () => {
+  console.log('%c Webpack SplitChuncks', 'background: lightgreen; color: black; display: block;');
+  console.log('%c commons.js', 'background: lightblue; color: black; display: block;');
   console.log(
-    "%c Webpack SplitChuncks",
-    "background: lightgreen; color: black; display: block;"
+    '%c This works if you see a commons.js file generated.',
+    'background: yellow; color: black; display: block;'
   );
   console.log(
-    "%c commons.js",
-    "background: lightblue; color: black; display: block;"
-  );
-  console.log(
-    "%c This works if you see a commons.js file generated.",
-    "background: yellow; color: black; display: block;"
-  );
-  console.log(
-    "Webpack will generate a commons.js file because this module is shared by multiple entrypoints (chuncks)."
+    'Webpack will generate a commons.js file because this module is shared by multiple entrypoints (chuncks).'
   );
 };
 

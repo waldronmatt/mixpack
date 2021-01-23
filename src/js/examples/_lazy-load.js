@@ -12,19 +12,19 @@
 */
 
 console.log(
-  "%c Open the Network Tab and click the Mixpack image logo at the top to test lazy loading.",
-  "background: orange; color: black; display: block;"
+  '%c Open the Network Tab and click the Mixpack image logo at the top to test lazy loading.',
+  'background: orange; color: black; display: block;'
 );
 
 function lazyLoad() {
-  const header = document.getElementsByTagName("img")[0];
+  const header = document.getElementsByTagName('img')[0];
 
   // Note that because a network request is involved, some indication
   // of loading would need to be shown in a production-level site/app.
   header.onclick = () =>
-    import(/* webpackChunkName: "_lazy-load-print" */ "./_lazy-load-print")
+    import(/* webpackChunkName: "_lazy-load-print" */ './_lazy-load-print')
       .then((module) => module.default())
-      .catch(() => "An error occurred while loading lazy-load-print");
+      .catch(() => 'An error occurred while loading lazy-load-print');
   return header;
 }
 

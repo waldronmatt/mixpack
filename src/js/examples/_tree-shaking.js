@@ -15,25 +15,19 @@
 
 const treeShakenFunction = () => {
   console.log(
-    "Webpack Tree-Shaking: treeShakenFunction() - Webpack removes this function (prod builds with minification enabled) because it is never called/used."
+    'Webpack Tree-Shaking: treeShakenFunction() - Webpack removes this function (prod builds with minification enabled) because it is never called/used.'
   );
 };
 
 const calledFunction = () => {
-  console.log(
-    "%c Webpack Tree-Shaking",
-    "background: lightgreen; color: black; display: block;"
-  );
-  console.log(
-    "%c includedFunction()",
-    "background: lightblue; color: black; display: block;"
-  );
+  console.log('%c Webpack Tree-Shaking', 'background: lightgreen; color: black; display: block;');
+  console.log('%c includedFunction()', 'background: lightblue; color: black; display: block;');
   console.log(
     "%c This works if you don't see 'treeShakenFunction()' in minified examples.js via prod build.",
-    "background: yellow; color: black; display: block;"
+    'background: yellow; color: black; display: block;'
   );
   console.log(
-    "Webpack keeps this function because we are calling it and discards the unused treeShakenFunction() function."
+    'Webpack keeps this function because we are calling it and discards the unused treeShakenFunction() function.'
   );
 };
 

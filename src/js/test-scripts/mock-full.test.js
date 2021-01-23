@@ -1,23 +1,23 @@
-import { BasicMath } from "./BasicMath";
-import { ComplexMath } from "./ComplexMath";
+import { BasicMath } from './BasicMath';
+import { ComplexMath } from './ComplexMath';
 
-jest.mock("./BasicMath"); // mock full class
+jest.mock('./BasicMath'); // mock full class
 
-describe("ComplexMath:class full mock", () => {
+describe('ComplexMath:class full mock', () => {
   beforeEach(() => {
     // Clear all instances and calls to constructor and all methods
     BasicMath.mockClear();
   });
 
   // implementation detail test
-  test("should check the constructor has been called", () => {
+  test('should check the constructor has been called', () => {
     // eslint-disable-next-line no-new
     new ComplexMath();
 
     expect(BasicMath).toBeCalledTimes(1);
   });
 
-  test("check that sum is called but no implementation is done", () => {
+  test('check that sum is called but no implementation is done', () => {
     const complexMath = new ComplexMath();
 
     const result = complexMath.avg(4, 2);
@@ -31,7 +31,7 @@ describe("ComplexMath:class full mock", () => {
     expect(result).toBe(NaN);
   });
 
-  test("check that sum is called and sum returns a value", () => {
+  test('check that sum is called and sum returns a value', () => {
     const complexMath = new ComplexMath();
 
     // get the mocked instance

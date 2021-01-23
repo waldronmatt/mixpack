@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-const path = require("path");
+const path = require('path');
 
 /*
   QUICK OVERVIEW ON WHY BABEL IS SET UP THE WAY IT IS BELOW:
@@ -29,26 +29,26 @@ module.exports = (api) => {
           needing to micromanage which syntax transforms (and optionally, browser polyfills)
           are needed by your target environment(s)
         */
-        "@babel/preset-env",
+        '@babel/preset-env',
         {
           /*
             method for getting package version dynamically found below:
             https://stackoverflow.com/a/10855054
           */
-          corejs: require("core-js/package.json").version,
+          corejs: require('core-js/package.json').version,
           /*
             output logging to see the plugins and polyfills preset-env applies
             based on the .browserlistrc config
           */
           debug: true,
           // exlude transformations that make code slower
-          exclude: ["transform-typeof-symbol"],
+          exclude: ['transform-typeof-symbol'],
           /*
             By default @babel/preset-env uses caller data to determine whether ES modules and module features
             (e.g. import()) should be transformed. Generally caller data will be specified in the bundler plugins
             (e.g. babel-loader, @rollup/plugin-babel): https://babeljs.io/docs/en/babel-preset-env#modules
           */
-          modules: "auto",
+          modules: 'auto',
           /*
             allow importing core-js in entrypoint and use browserlist to select polyfills
 
@@ -56,7 +56,7 @@ module.exports = (api) => {
             but DON'T use this option with @babel/transform-runtime:
             https://github.com/babel/babel/issues/9853#issuecomment-619587386
           */
-          useBuiltIns: "entry",
+          useBuiltIns: 'entry',
         },
       ],
     ],
@@ -68,7 +68,7 @@ module.exports = (api) => {
           to the top of every file you can move them into a single "runtime" which gets required.
           https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/user-handbook.md#babel-runtime
         */
-        "@babel/plugin-transform-runtime",
+        '@babel/plugin-transform-runtime',
         /*
           Settings based on defaults:
           https://babeljs.io/docs/en/babel-plugin-transform-runtime#with-a-configuration-file-recommended
@@ -81,9 +81,7 @@ module.exports = (api) => {
            Explicitly resolve to match provided helper function
            https://babeljs.io/docs/en/babel-plugin-transform-runtime#absoluteruntime
          */
-          absoluteRuntime: path.dirname(
-            require.resolve("@babel/runtime/package.json")
-          ),
+          absoluteRuntime: path.dirname(require.resolve('@babel/runtime/package.json')),
           // by default, @babel/plugin-transform-runtime doesn't polyfill proposals
           corejs: false,
           /*
@@ -113,7 +111,7 @@ module.exports = (api) => {
          */
           useESModules: false,
           // explicitly resolve to match provided helper functions
-          version: require("@babel/runtime/package.json").version,
+          version: require('@babel/runtime/package.json').version,
         },
       ],
       [
@@ -122,7 +120,7 @@ module.exports = (api) => {
           This is why we install them directly and include here
         */
         // transforms static class properties
-        "@babel/plugin-proposal-class-properties",
+        '@babel/plugin-proposal-class-properties',
       ],
     ],
   };
