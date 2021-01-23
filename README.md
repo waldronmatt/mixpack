@@ -19,7 +19,7 @@ Mixpack sets out to provide an all-in-one Webpack boilerplate solution using cor
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/waldronmatt/mixpack)
 
 ## Installation
-        
+
 Install dependencies:
 
         npm install
@@ -40,9 +40,9 @@ Build and serve for production
 
 ### Other commands
 
-**Build and serve for production (server-enabled)
+\*\*Build and serve for production (server-enabled)
 
-**Note: First, point to server-prod.js in webpack.server.config.
+\*\*Note: First, point to server-prod.js in webpack.server.config.
 
         npm run build
         npm run serve
@@ -59,13 +59,14 @@ Run all tests with additional test coverage information:
 
         npm run coverage
 
-**Visualize Webpack output
+\*\*Visualize Webpack output
 
-**Note: First, make sure debugging is disabled in babel.config.js
+\*\*Note: First, make sure debugging is disabled in babel.config.js
 
         npm run analyze
 
 ## Features
+
 - Transpile TypeScript, Next-Gen JavaScript, Sass, and Next-Gen CSS
 - Testing support for a mixed JS/TS environment using Jest
 - Linting support for a mixed JS/TS and CSS/Sass environment using Eslint and Stylelint
@@ -75,6 +76,7 @@ Run all tests with additional test coverage information:
 - Includes code splitting examples
 
 ## Technologies
+
 - Webpack
 - Express
 - Babel
@@ -89,16 +91,19 @@ Run all tests with additional test coverage information:
 ## Dependency Deep-Dive
 
 ### Production dependencies
+
 - core.js - polyfill library to support older browsers
 - sanitize.css - css normalization library to set default, cross-browser stylings
 
 ### Webpack
+
 - webpack: module and asset bundler
 - webpack-cli: command line interface for Webpack
 - webpack-merge: simplify development/production configuration
 - webpack-node-externals: exclude node modules in Webpack
 
 ### Loaders
+
 - style-loader
 - mini-css-extract-loader
 - css-loader
@@ -109,6 +114,7 @@ Run all tests with additional test coverage information:
 - ts-loader
 
 ### Plugins
+
 - File Processing
   - MiniCssExtractPlugin
   - HtmlWebPackPlugin
@@ -126,6 +132,7 @@ Run all tests with additional test coverage information:
   - imagemin-webp - (separately generate webp images)
 
 ### Transpilers/Tools
+
 - Babel: transpile modern JavaScript into browser recognizable JavaScript
   - @babel/preset-env: a collection of babel plugins with smart defaults
   - @babel/plugin-transform-runtime: enables the re-use of Babel's injected helper code to save on codesize
@@ -138,17 +145,20 @@ Run all tests with additional test coverage information:
 - Browserlist: share target browsers between different front-end tools
 
 ### Back-end Tools
+
 - Express: server framework for Node.js
 - serverless-http: allows you to 'wrap' your API for serverless use (used for hosting on Netlify)
 - webpack-dev-server: development server that provides live/hot reloading
 
 ### Testing
+
 - Jest - JavaScript testing framework
   - babel-jest: Jest plugin to use Babel for transformation
   - ts-jest: preprocessor to use TypeScript with Jest
   - jest-transform-stub: avoid errors when importing non-JS assets
 
 ### Linters
+
 - Prettier: formatter for scripts and styles
 - EditorConfig: general file formatter for your editor/IDE
 - ESLint: script linter
@@ -167,10 +177,12 @@ Run all tests with additional test coverage information:
     - eslint-config-airbnb-typescript
 - StyleLint: stylesheet linter
   - Plugins
-    - stylelint-scss
     - stylelint-order
+    - stylelint-scss
+    - stylelint-prettier
   - Extentions
-    - stylelint-config-standard
+    - stylelint-config-standard (includes stylelint-config-recommended)
+    - stylelint-config-recommended-scss
     - stylelint-config-sass-guidelines
     - stylelint-config-prettier
 
