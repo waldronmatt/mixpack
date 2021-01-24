@@ -23,7 +23,9 @@ module.exports = {
   ],
   /*
     babelOptions is an object containing Babel configuration options that are passed to Babel's parser at runtime.
-    For cases where users might not want to use a Babel configuration file or are running Babel through another tool (such as Webpack with babel-loader).
+    For cases where users might not want to use a Babel configuration file or are running Babel through
+    another tool (such as Webpack with babel-loader).
+    https://eslint.org/docs/developer-guide/working-with-custom-parsers
     https://github.com/babel/babel/tree/main/eslint/babel-eslint-parser#additional-parser-configuration
   */
   parserOptions: {
@@ -56,12 +58,9 @@ module.exports = {
       plugins: ['@typescript-eslint', 'prettier'],
       // A parser that converts TypeScript into an ESTree-compatible form so it can be used in ESLint.
       parser: '@typescript-eslint/parser',
-      /*
-        Create a separate TypeScript config file (tsconfig.eslint.json) intended for eslint configuration.
-        This file extends 'tsconfig' configuration and setups 'include' key for files that have to be linted.
-      */
+      // Create a separate TypeScript config file (tsconfig.json) intended for eslint configuration.
       parserOptions: {
-        project: './tsconfig.eslint.json',
+        project: './tsconfig.json',
       },
       extends: [
         // Uses the recommended rules from the @typescript-eslint/eslint-plugin
