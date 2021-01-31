@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
     <%= require('html-loader!./header.html') %>
     <main>
-      <h2>Oops! The requested page was not found.</h2>
+      <h1>Oops! The requested page was not found.</h1>
       <p class="center"><a href="/">Go back to home page.</a></p>
     </main>
     <%= require('html-loader!./footer.html') %>

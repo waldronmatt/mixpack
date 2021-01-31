@@ -31,6 +31,7 @@ module.exports = (env, argv) => {
           server.sockWrite(server.sockets, 'content-changed');
         });
       },
+      noInfo: true,
       historyApiFallback: true,
       contentBase: path.resolve(__dirname, '../dist'),
       publicPath: '/',
@@ -38,6 +39,18 @@ module.exports = (env, argv) => {
       compress: true,
       hot: true,
       port: 8080,
+      historyApiFallback: {
+        /*
+          Use rewrites for pages so we can keep internal links relative (no html)
+          for when we serve in production using express
+          https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
+        */
+        rewrites: [
+          { from: /^\/$/, to: '/views/index.html' },
+          { from: /^\/test/, to: '/views/test.html' },
+          { from: /./, to: '/views/404.html' },
+        ],
+      },
       // useful for debugging
       // writeToDisk: true,
     },

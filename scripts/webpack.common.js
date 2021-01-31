@@ -39,7 +39,7 @@ module.exports = (env, argv) => {
   // feed an array of page names to dynamically generate pages with attributes
   let multipleHtmlWebPackPlugins = ['index', 'test', '404'].map((name) => {
     return new HtmlWebPackPlugin({
-      filename: `${name}.html`,
+      filename: isProduction ? `views/${name}.ejs` : `views/${name}.html`,
       title: `${capitilizeFirstLetterOfWord(name)} | Mixpack`,
       template: `./src/pages/${name}.ejs`,
       excludeChunks: ['server'],

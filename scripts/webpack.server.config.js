@@ -3,6 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
   return {
+    mode: 'production',
     entry: {
       // change file to 'server-prod.js' for server-enabled express
       server: './scripts/serverless-prod.js',
