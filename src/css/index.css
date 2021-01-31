@@ -1,60 +1,47 @@
 /*
   This file tests Next-Gen CSS using postcss-preset-env
   This includes tests for autoprefixer (included with postcss-preset-env)
-
-  Test code modified from https://preset-env.cssdb.org/playground (stage 2)
-  Stage 2 is enabled by default and supports all browsers: https://github.com/csstools/postcss-preset-env#stage
+  Test code modified from https://preset-env.cssdb.org/playground
 */
-@custom-media --viewport-medium (max-width: 50rem);
+@custom-media --viewport-medium (width <= 767px);
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 
-:root {
-  --fontSize: 1rem;
-  --mainColor: rgba(18, 52, 86, 0.47059);
-  --secondaryColor: rgba(102, 51, 153, 0.9);
-}
-
-html {
-  overflow: hidden auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 @media (--viewport-medium) {
-  body {
-    color: var(--mainColor);
-    font-family: system-ui;
-    font-size: var(--fontSize);
-    line-height: calc(var(--fontSize) * 1.5);
-    overflow-wrap: break-word;
-    padding-left: calc(var(--fontSize) / 2 + 1px);
-    padding-right: calc(var(--fontSize) / 2 + 1px);
+  :root {
+    --mainColor: #f5f5dc;
+    --secondaryColor: lab(32.5 38.5 -47.6 / 90%);
   }
-}
 
-'class=css-var' > :--heading {
-  margin-bottom: 0;
-  margin-top: 0;
-}
+  html {
+    overflow: hidden auto;
+  }
 
-img {
-  background-image: image-set('../img/logo.png' 1x, '../img/logo.png' 2x);
-}
+  body {
+    background: linear-gradient(to bottom, #808080, #000);
+    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    background-repeat: no-repeat;
+    color: var(--mainColor);
+  }
 
-a {
-  /*
-    NOTE: This comment is applicable only if you are using Node Sass.
+  :--heading {
+    font-weight: bold;
+  }
 
-    Why not use the regular lowercase 'rgb' syntax?
-    rgb and rgba functions via node-sass misinterpret CSS variables as a single value instead of their output
-    https://github.com/sass/node-sass/issues/2251
+  a {
+    /*
+      NOTE: This comment is applicable only if you are using Node Sass.
+      Why not use the regular lowercase 'rgb' syntax?
+      rgb and rgba functions via node-sass misinterpret CSS variables as a single value instead of their output
+      https://github.com/sass/node-sass/issues/2251
+      Using lowercase 'rgb' is recognized by css
+      https://twitter.com/anatudor/status/963758591529365504
+    */
+    background-color: unset;
+    color: rgb(0 0 100% / 90%);
 
-    Using lowercase 'rgb' is recognized by css
-    https://twitter.com/anatudor/status/963758591529365504
-  */
-  color: rgb(0 0 100% / 90%);
-
-  &:hover {
-    color: #639;
+    &:hover {
+      color: #639;
+    }
   }
 }

@@ -13,9 +13,8 @@ module.exports = {
       /*
         The stage option determines which CSS features to polyfill
         stage 2 is enabled by default
-        change to a lower stage to see postcss polyfill more
       */
-      stage: 2,
+      stage: 1,
     },
   },
 };
