@@ -1,0 +1,11 @@
+{
+  "extends": ["html-validate:recommended"],
+  "elements": ["html5"],
+  "rules": {
+    "no-unknown-elements": "error",
+    "input-missing-label": "error",
+    "no-missing-references": "error",
+    "class-pattern": ["error", { "pattern": "kebabcase" }],
+    "id-pattern": ["error", { "pattern": "kebabcase" }]
+  }
+}
