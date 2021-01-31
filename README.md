@@ -47,10 +47,6 @@ Build and serve for production
         npm run build
         npm run serve
 
-Create webp images:
-
-        npm run optimize
-
 Run all tests:
 
         npm run test
@@ -64,6 +60,14 @@ Run all tests with additional test coverage information:
 \*\*Note: First, make sure debugging is disabled in babel.config.js
 
         npm run analyze
+
+Create webp images:
+
+        npm run optimize
+
+Validate/lint html/template files:
+
+        npm run linthtml
 
 ## Features
 
@@ -185,6 +189,13 @@ Run all tests with additional test coverage information:
     - stylelint-config-recommended-scss
     - stylelint-config-sass-guidelines
     - stylelint-config-prettier
+- HTML-validate: offline HTML5 validator (includes html-validate:standard, html-validate:a17y)
+  - Plugins
+    - html-validate:recommended
+
+## Limitations
+
+Back end testing and HMR for development builds (integration with express) is not supported yet due to webpack incompatibility with webpack-hot-middleware.
 
 ## Contributing
 
