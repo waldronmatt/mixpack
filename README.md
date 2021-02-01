@@ -96,11 +96,11 @@ Lint html files:
 
 ## Dependency Deep-Dive
 
-See the [extended README](docs/README)
+See the [extended README](docs/README.md)
 
 ## Mixpack for back end
 
-See the [backend README](docs/backend)
+See the [backend README](docs/backend.md)
 
 ## Contributing
 
