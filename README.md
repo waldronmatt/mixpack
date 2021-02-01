@@ -32,19 +32,19 @@ Run dev environment:
 
         npm run dev
 
-### Production build (serverless with Netlify)
+### Production build (serverless)
 
 Build and serve for production:
 
-        npm run build
+**Note:** Configure this command in your Netlify account.
 
-Note: Configure this command in your Netlify account.
+        npm run build
 
 ### Other commands
 
-\*\*Build and serve for production (local):
+Build and serve for production (locally):
 
-\*\*Note: Point to `server: './scripts/server-prod.js',` in `webpack.server.config`.
+**Note:** Point to `server: './scripts/server-prod.js',` in `webpack.server.config`.
 
         npm run build
         npm run serve
@@ -57,9 +57,9 @@ Run all tests with additional coverage information:
 
         npm run coverage
 
-\*\*Visualize Webpack output:
+Visualize Webpack output:
 
-\*\*Note: First, make sure `debug: true,` is disabled in `babel.config.js`.
+**Note:** First, make sure `debug: true,` is disabled in `babel.config.js`.
 
         npm run analyze
 

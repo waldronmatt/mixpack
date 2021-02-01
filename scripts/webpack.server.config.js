@@ -6,7 +6,7 @@ module.exports = (env, argv) => {
     mode: 'production',
     entry: {
       // change file to 'server-prod.js' for server-enabled express
-      server: './scripts/server-prod.js',
+      server: './scripts/serverless-prod.js',
     },
     /*
         If you don't put this as, __dirname and __filename return blank or /
