@@ -27,7 +27,7 @@ module.exports = (env, argv) => {
         https://stackoverflow.com/questions/52322913/webpack-4-devserver-hmr-plus-full-reload-on-other-file-changes-like-views
       */
       before(app, server) {
-        chokidar.watch(['./src/pages/**/**']).on('all', function () {
+        chokidar.watch(['./src/views/**/**']).on('all', function () {
           server.sockWrite(server.sockets, 'content-changed');
         });
       },
@@ -39,20 +39,12 @@ module.exports = (env, argv) => {
       compress: true,
       hot: true,
       port: 8080,
-      historyApiFallback: {
-        /*
-          Use rewrites for pages so we can keep internal links relative (no html)
-          for when we serve in production using express
-          https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
-        */
-        rewrites: [
-          { from: /^\/$/, to: '/views/index.html' },
-          { from: /^\/test/, to: '/views/test.html' },
-          { from: /./, to: '/views/404.html' },
-        ],
+      inline: true,
+      proxy: {
+        'http://localhost:8080/': 'http://localhost:8081',
+        secure: false,
       },
-      // useful for debugging
-      // writeToDisk: true,
+      writeToDisk: true,
     },
     plugins: [
       new ESLintPlugin({
@@ -62,7 +54,9 @@ module.exports = (env, argv) => {
       new FaviconsWebpackPlugin({
         mode: 'light',
       }),
-      new webpack.HotModuleReplacementPlugin(),
+      new webpack.HotModuleReplacementPlugin({
+        multiStep: true,
+      }),
     ],
     optimization: {
       // don't minimize so we can debug

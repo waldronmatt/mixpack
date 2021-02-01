@@ -1,36 +1,11 @@
-import express from 'express';
-import paths from './paths';
-import data from './backend';
+const { initMainRoutes } = require('../src/routes/main');
+const { initErrorRoutes } = require('../src/routes/error');
 
-// setup
-const app = express();
+function allRoutes(app) {
+  initMainRoutes(app);
+  initErrorRoutes(app);
+}
 
-// use express.static() to serve files from several directories
-app.use(express.static(__dirname));
-
-// directory to serve template files
-app.set('views', __dirname + '/views');
-
-// use `ejs` template engine
-app.set('view engine', 'ejs');
-
-// config
-app.get('/', (req, res) => {
-  // If you simply want to serve static files, use the snippet below
-  // res.sendFile(paths.INDEX_FILE);
-  res.render('index', { dynamic: data });
-});
-
-app.get('/test', (req, res) => {
-  res.render('test');
-});
-
-// The 404 Route (ALWAYS Keep this as the last route)
-app.get('*', (req, res) => {
-  res.render('404');
-});
-
-app.listen(paths.PORT, () => {
-  console.log(`App listening to ${paths.PORT}....`);
-  console.log('Press Ctrl+C to quit.');
-});
+module.exports = {
+  initAllRoutes: allRoutes,
+};
