@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <%= require('html-loader!./header.html') %>
+    <main>
+      <h1>Welcome to MixPack!</h1>
+      <h2>A mixed TypeScript/JavaScript Webpack boilerplate with Express.</h2>
+      <p class="center"><a href="./test.html">Go to test page.</a></p>
+    </main>
+    <section>
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li>Transpile Typescript and Next-Gen JavaScript</li>
+        <li>Run TypeScript and JavaScript test files using Jest.</li>
+        <li>Supports multi-parser linting for TypeScript and JavaScript using Eslint</li>
+        <li>Integrates the Express + Webpack (expack) boilerplate with hot-reloading.</li>
+        <li>Transpile Sass and Nex-Gen CSS.</li>
+        <li>Performance optimized webpack configurations.</li>
+        <li>Code Splitting example files included!</li>
+      </ul>
+    </section>
+    <%= require('html-loader!./footer.html') %>
+  </body>
+</html>

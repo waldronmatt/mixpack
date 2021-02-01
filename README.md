@@ -32,17 +32,19 @@ Run dev environment:
 
         npm run dev
 
-### Production build (serverless with Netlify setup)
+### Production build (serverless with Netlify)
 
-Build and serve for production
+Build and serve for production:
 
         npm run build
 
+Note: Configure this command in your Netlify account.
+
 ### Other commands
 
-\*\*Build and serve for production (server-enabled)
+\*\*Build and serve for production (local):
 
-\*\*Note: First, point to server-prod.js in webpack.server.config.
+\*\*Note: Point to `server: './scripts/server-prod.js',` in `webpack.server.config`.
 
         npm run build
         npm run serve
@@ -51,13 +53,13 @@ Run all tests:
 
         npm run test
 
-Run all tests with additional test coverage information:
+Run all tests with additional coverage information:
 
         npm run coverage
 
-\*\*Visualize Webpack output
+\*\*Visualize Webpack output:
 
-\*\*Note: First, make sure debugging is disabled in babel.config.js
+\*\*Note: First, make sure `debug: true,` is disabled in `babel.config.js`.
 
         npm run analyze
 
@@ -65,7 +67,7 @@ Create webp images:
 
         npm run optimize
 
-Validate/lint html/template files:
+Lint html files:
 
         npm run linthtml
 
@@ -94,7 +96,7 @@ Validate/lint html/template files:
 
 ## Dependency Deep-Dive
 
-### Production dependencies
+### Front end production dependencies
 
 - core.js - polyfill library to support older browsers
 - sanitize.css - css normalization library to set default, cross-browser stylings
@@ -192,10 +194,6 @@ Validate/lint html/template files:
 - HTML-validate: offline HTML5 validator (includes html-validate:standard, html-validate:a17y)
   - Plugins
     - html-validate:recommended
-
-## Limitations
-
-Back end testing and HMR for development builds (integration with express) is not supported yet due to webpack incompatibility with webpack-hot-middleware.
 
 ## Contributing
 

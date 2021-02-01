@@ -8,7 +8,7 @@
     "coverage": "jest --coverage",
     "optimize": "node ./scripts/optimize-images.js",
     "analyze": "webpack --json --config ./scripts/webpack.prod.js > stats.json && webpack-bundle-analyzer --port 8080 stats.json",
-    "linthtml": "node_modules/.bin/html-validate src/**/*.{html,ejs}",
+    "linthtml": "node_modules/.bin/html-validate src/**/*.html",
     "dev": "rm -rf dist && webpack serve --mode development --config ./scripts/webpack.dev.js",
     "build": "rm -rf dist && webpack --config ./scripts/webpack.server.config.js && webpack --mode production --config ./scripts/webpack.prod.js",
     "serve": "node ./dist/server.js"
@@ -29,7 +29,6 @@
   "license": "MIT",
   "dependencies": {
     "core-js": "^3.6.5",
-    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "sanitize.css": "^12.0.1",
     "serverless-http": "^2.6.0"

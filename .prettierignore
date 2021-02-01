@@ -3,6 +3,5 @@ dist/
 build/
 coverage/
 
-# Ignore all HTML files:
+# Ignore to avoid conflict with html-validate:
 *.html
-*.ejs
