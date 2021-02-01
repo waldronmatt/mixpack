@@ -5,25 +5,26 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = (env, argv) => {
   const config = {
     mode: argv.mode,
     // map your compiled code back to your original source code.
     devtool: 'inline-source-map',
+    /*
+      Disabling pathinfo:
+      webpack has the ability to generate path info in the output bundle. However, this puts
+      garbage collection pressure on projects that bundle thousands of modules.
+    */
     output: {
-      filename: '[name].js',
-      // specify chunck path for code splitted files
-      chunkFilename: '[name].js',
+      pathinfo: false,
     },
     devServer: {
       /*
-        We're using chokidar to watch for html includes so reloading can occur automatically.
+        We're using chokidar to watch for html files so reloading can occur automatically.
         Why use this method?
         - webpack-live-reload does not support Webpack 5 as of 11/2020
         - webpack-dev-server uses chokidar internally so we don't have to install an extra dependency
-
         https://stackoverflow.com/questions/52322913/webpack-4-devserver-hmr-plus-full-reload-on-other-file-changes-like-views
       */
       before(app, server) {
@@ -58,9 +59,6 @@ module.exports = (env, argv) => {
         extensions: ['js', 'ts'],
       }),
       new StylelintPlugin(),
-      new FaviconsWebpackPlugin({
-        mode: 'light',
-      }),
       new webpack.HotModuleReplacementPlugin(),
     ],
     optimization: {
@@ -70,7 +68,12 @@ module.exports = (env, argv) => {
         The value 'single' instead creates a runtime file to be shared for all generated chunks.
         https://github.com/webpack/webpack-dev-server/issues/2792
       */
+      // creates an additional chunk for the runtime code, so it's cheap to generate
       runtimeChunk: 'single',
+      // https://webpack.js.org/guides/build-performance/#avoid-extra-optimization-steps
+      removeAvailableModules: false,
+      removeEmptyChunks: false,
+      splitChunks: false,
     },
   };
   return merge(common(env, argv), config);

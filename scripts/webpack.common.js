@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
-const { capitilizeFirstLetterOfWord } = require('./functions');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -36,6 +36,15 @@ module.exports = (env, argv) => {
     },
   ];
 
+  let miniCssExtract = () => {
+    // where the compiled scss is saved to
+    return new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css',
+    });
+  };
+
+  const capitilizeFirstLetterOfWord = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+
   // feed an array of page names to dynamically generate pages with attributes
   let multipleHtmlWebPackPlugins = ['index', 'test', '404'].map((name) => {
     return new HtmlWebPackPlugin({
@@ -64,8 +73,13 @@ module.exports = (env, argv) => {
       examples: ['./src/js/examples.js'],
     },
     output: {
+      // output directory as an absolute path.
       path: path.join(__dirname, '../dist'),
+      // specifies the public URL of the output directory when referenced in a browser.
       publicPath: '/',
+      filename: isProduction ? '[name].[contenthash:8].js' : '[name].js',
+      // specify chunck path for code splitted files
+      chunkFilename: isProduction ? '[name].[contenthash:8].js' : '[name].js',
       /*
         There's a bug with Webpack 5 not transpiling code that is IE11 digestible
         https://github.com/webpack/webpack/issues/11876
@@ -119,7 +133,7 @@ module.exports = (env, argv) => {
             {
               loader: 'ts-loader',
               options: {
-                // for hot reloading
+                // improve the build time
                 transpileOnly: true,
                 experimentalWatchApi: true,
               },
@@ -138,11 +152,12 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    // resolve both ts and js files
+    // change defaults to resolve both ts and js files
     resolve: {
       extensions: ['.ts', '.js'],
     },
     plugins: [
+      isProduction ? miniCssExtract() : false,
       new PreloadWebpackPlugin({
         rel: 'preload',
         include: ['_preload-print'],
@@ -151,7 +166,21 @@ module.exports = (env, argv) => {
         rel: 'prefetch',
         include: ['_prefetch-print'],
       }),
-    ].concat(multipleHtmlWebPackPlugins),
+      // generate optimized favicons for different devices
+      new FaviconsWebpackPlugin({
+        /*
+          If the webpack mode is set to development the favicons mode will use light.
+          If the webpack mode is set to production the favicons mode will use webapp.
+          Comment out line below to enable defaults above;
+        */
+        mode: 'light',
+        // Your source logo (required)
+        logo: path.resolve(__dirname, '../src/logo.png'),
+      }),
+    ]
+      .concat(multipleHtmlWebPackPlugins)
+      // remove empty elements from config (a.k.a. miniCssExtract in dev mode)
+      .filter(Boolean),
     performance: {
       hints: 'warning',
     },

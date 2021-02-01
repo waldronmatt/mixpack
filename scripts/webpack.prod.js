@@ -1,9 +1,6 @@
-const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = (env, argv) => {
@@ -11,22 +8,6 @@ module.exports = (env, argv) => {
     mode: argv.mode,
     // disable for efficient prod builds and code reduction
     devtool: false,
-    output: {
-      filename: '[name].[contenthash:8].js',
-      // specify chunck path for code splitted files
-      chunkFilename: '[name].[contenthash:8].js',
-    },
-    plugins: [
-      // generate optimized favicons for different devices
-      new FaviconsWebpackPlugin({
-        // remove mode to enable default 'webapp' for comprehensive favicon generation
-        mode: 'light',
-      }),
-      // where the compiled scss is saved to
-      new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:8].css',
-      }),
-    ],
     optimization: {
       minimize: true,
       minimizer: [
