@@ -3,8 +3,8 @@ import '../scss/index.scss';
 import '../css/index.css';
 
 // https://github.com/BulbEnergy/jest-mock-examples/tree/master/class-mock
-import { BasicMath } from './test-scripts/BasicMath';
-import { ComplexMath } from './test-scripts/ComplexMath';
+import { BasicMath } from './tests/BasicMath';
+import { ComplexMath } from './tests/ComplexMath';
 
 /* SPLITCHUNCKS - COMMON.JS EXAMPLE */
 import sharedModule from './examples/_splitchuncks-common';
