@@ -1,4 +1,4 @@
-# MixPack for the back end
+# MixPack for the Back End
 
 You can configure Mixpack to watch and bundle for front end and back end code.
 
@@ -88,6 +88,7 @@ To inject data from the back end, we will need to create an `.html` partial and 
         </main>
 
 - Importing the partial using `html-loader`, allows for `<%= index %>` to be skipped by `htmlwebpackplugin` and processed by express.
+- **Note:** Omit `.html` for links referenced in your markup.
 
 Configure htmlwebpackplugin to output ejs files.
 

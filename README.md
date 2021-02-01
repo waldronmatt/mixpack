@@ -98,7 +98,7 @@ Lint html files:
 
 See the [extended README](docs/README.md)
 
-## Mixpack for back end
+## Mixpack for the Back End
 
 See the [backend README](docs/backend.md)
 
