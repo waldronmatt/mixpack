@@ -5,6 +5,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const HtmlValidatePlugin = require('html-validate-webpack-plugin');
 
 module.exports = (env, argv) => {
   const config = {
@@ -55,6 +56,10 @@ module.exports = (env, argv) => {
       // writeToDisk: true,
     },
     plugins: [
+      new HtmlValidatePlugin({
+        path: 'src/views/*',
+        config: 'htmlvalidate',
+      }),
       new ESLintPlugin({
         extensions: ['js', 'ts'],
       }),
