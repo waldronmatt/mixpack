@@ -67,10 +67,6 @@ Create webp images:
 
         npm run optimize
 
-Lint html files:
-
-        npm run linthtml
-
 ## Features
 
 - Transpile TypeScript, Next-Gen JavaScript, Sass, and Next-Gen CSS
@@ -80,19 +76,6 @@ Lint html files:
 - Includes an organized [sass boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
 - Optimized Webpack configurations
 - Includes code splitting examples
-
-## Technologies
-
-- Webpack
-- Express
-- Babel
-- PostCSS
-- Jest
-- TypeScript
-- Next-Gen JavaScript
-- Sass
-- Next-Gen CSS
-- HTML
 
 ## Dependency Deep-Dive
 

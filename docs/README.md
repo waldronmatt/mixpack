@@ -37,8 +37,10 @@
   - CssMinimizerWebpackPlugin
   - ImageminPlugin
 - Linters
-  - ESLintPlugin
-  - StylelintPlugin
+  - ESLintWebpackPlugin
+  - StylelintWebpackPlugin
+- Validators
+  - HtmlValidateWebpackPlugin
 - Miscellaneous
   - Webpack Bundle Analyzer
   - imagemin-webp - (separately generate webp images)
@@ -97,6 +99,6 @@
     - stylelint-config-recommended-scss
     - stylelint-config-sass-guidelines
     - stylelint-config-prettier
-- HTML-validate: offline HTML5 validator (includes html-validate:standard, html-validate:a17y)
+- HTML-validate: offline HTML5 validator
   - Plugins
-    - html-validate:recommended
+    - html-validate:recommended (includes html-validate:standard, html-validate:a17y)

@@ -1,4 +1,4 @@
-# HTML validate README
+# html-validate README
 
 ### (.htmlvalidate.json does not support JSON with comments)
 
@@ -6,6 +6,7 @@
 By setting the root property to true the search is stopped. This can be used to prevent searching from outside the project directory or to use a specific configuration for a specific directory without loading project configuration.
 
 With the configuration below, only the project root and src/ root will be searched for .htmlvalidation.json
+
 `"root": true`
 
 \
