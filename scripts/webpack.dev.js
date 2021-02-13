@@ -12,14 +12,6 @@ module.exports = (env, argv) => {
     mode: argv.mode,
     // map your compiled code back to your original source code.
     devtool: 'inline-source-map',
-    /*
-      Disabling pathinfo:
-      webpack has the ability to generate path info in the output bundle. However, this puts
-      garbage collection pressure on projects that bundle thousands of modules.
-    */
-    output: {
-      pathinfo: false,
-    },
     devServer: {
       /*
         We're using chokidar to watch for html files so reloading can occur automatically.
