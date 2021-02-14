@@ -35,7 +35,7 @@ const developmentConfig = {
     // tell the server where to serve content from (publicPath takes precedence)
     contentBase: path.resolve(__dirname, '../dist'),
     // open the browser after server starts
-    open: true,
+    // open: true,
     // enable webpack's Hot Module Replacement feature
     hot: true,
     // specify a port number to listen for requests on:

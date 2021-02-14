@@ -32,6 +32,8 @@ Run dev environment:
 
         npm run dev
 
+Navigate to [http://localhost:8080/](http://localhost:8080/)
+
 ### Production build (serverless)
 
 Build and serve for production:
