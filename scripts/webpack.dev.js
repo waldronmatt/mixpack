@@ -5,7 +5,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const HtmlValidatePlugin = require('html-validate-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
-const extendWebpackBaseConfig = require('webpack-config');
+const extendWebpackBaseConfig = require('@waldronmatt/webpack-config');
 
 const developmentConfig = {
   devServer: {

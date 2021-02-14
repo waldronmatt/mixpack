@@ -1,5 +1,5 @@
 const commonConfig = require('./webpack.common.js');
-const extendWebpackBaseConfig = require('webpack-config');
+const extendWebpackBaseConfig = require('@waldronmatt/webpack-config');
 
 const productionConfig = {
   optimization: {
