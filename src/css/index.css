@@ -22,6 +22,9 @@
     background-color: rgba(0, 0, 0, 0.9);
     background-repeat: no-repeat;
     color: var(--mainColor);
+
+    /* test autoprefixer */
+    user-select: none;
   }
 
   :--heading {
