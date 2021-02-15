@@ -1,7 +1,0 @@
-# Ignore artifacts:
-dist/
-build/
-coverage/
-
-# Ignore to avoid conflict with html-validate:
-*.html

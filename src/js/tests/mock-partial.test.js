@@ -12,7 +12,7 @@ jest.mock('./BasicMath', () => ({
 }));
 
 describe('ComplexMath:class partial mock', () => {
-  test('should return result based on mock sum without mocking everything', () => {
+  test('should return result based on mock sum without mocking it all', () => {
     // Can also spy the class function
     // const spy = jest
     //   .spyOn(BasicMath.prototype, 'sum')

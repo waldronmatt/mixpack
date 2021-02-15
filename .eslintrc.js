@@ -1,7 +1,10 @@
 module.exports = {
   // Plugins that provide the processors to parse code for linting
   plugins: ['prettier'],
-  // files to exclude including: bundled files, webpack configs, jest coverage reports
+  /*
+    files to exclude including: bundled files, webpack configs,
+    jest coverage reports
+  */
   ignorePatterns: ['dist/**', 'scripts/**', 'coverage/**'],
   // A wrapper around the Babel parser that makes it compatible with ESLint.
   parser: '@babel/eslint-parser',
@@ -13,18 +16,24 @@ module.exports = {
       depends on eslint-plugin-import to work
     */
     'airbnb-base',
-    // Make sure the "prettier" rules are last, that way they overwrite previous configurations.
+    /*
+      Make sure the "prettier" rules are last,
+      that way they overwrite previous configurations.
+    */
     'prettier',
     /*
-      Enables eslint-plugin-prettier and displays prettier errors as ESLint errors.
-      Make sure this is always the last configuration in the extends array.
+      Enables eslint-plugin-prettier and displays prettier errors as
+      ESLint errors. Make sure this is always the last configuration
+      in the extends array.
     */
     'plugin:prettier/recommended',
   ],
   /*
-    babelOptions is an object containing Babel configuration options that are passed to Babel's parser at runtime.
-    For cases where users might not want to use a Babel configuration file or are running Babel through
-    another tool (such as Webpack with babel-loader).
+    babelOptions is an object containing Babel configuration options
+    that are passed to Babel's parser at runtime.
+    For cases where users might not want to use a Babel configuration file
+    or are running Babel through another tool
+    (such as Webpack with babel-loader).
     https://eslint.org/docs/developer-guide/working-with-custom-parsers
     https://github.com/babel/babel/tree/main/eslint/babel-eslint-parser#additional-parser-configuration
   */
@@ -44,6 +53,8 @@ module.exports = {
   // @babel/eslint-parser and prettier rules go here
   rules: {
     'prettier/prettier': ['error'],
+    // https://github.com/prettier/eslint-config-prettier#max-len
+    'max-len': ['error', { code: 80, ignoreUrls: true }],
     // https://stackoverflow.com/questions/44939304/eslint-should-be-listed-in-the-projects-dependencies-not-devdependencies
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
@@ -56,9 +67,15 @@ module.exports = {
       files: ['**/*.ts'],
       // Plugins that provide the processors to parse code for linting
       plugins: ['@typescript-eslint', 'prettier'],
-      // A parser that converts TypeScript into an ESTree-compatible form so it can be used in ESLint.
+      /*
+        A parser that converts TypeScript into an ESTree-compatible
+        form so it can be used in ESLint.
+      */
       parser: '@typescript-eslint/parser',
-      // Create a separate TypeScript config file (tsconfig.json) intended for eslint configuration.
+      /*
+        Create a separate TypeScript config file (tsconfig.json)
+        intended for eslint configuration.
+      */
       parserOptions: {
         project: './tsconfig.json',
       },
@@ -67,16 +84,24 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         /*
           Uses the recommended rules from eslint-config-airbnb-typescript
-          depends on @typescript-eslint/eslint-plugin and eslint-plugin-import to work
+          depends on @typescript-eslint/eslint-plugin
+          and eslint-plugin-import to work
         */
         'airbnb-typescript/base',
-        // Make sure the "prettier" rules are last, that way they overwrite previous configurations.
+        /*
+          Make sure the "prettier" rules are last, that way they
+          overwrite previous configurations.
+        */
         'prettier',
-        // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+        /*
+          Uses eslint-config-prettier to disable ESLint rules from
+          @typescript-eslint/eslint-plugin that would conflict with prettier
+        */
         'prettier/@typescript-eslint',
         /*
-          Enables eslint-plugin-prettier and displays prettier errors as ESLint errors.
-          Make sure this is always the last configuration in the extends array.
+          Enables eslint-plugin-prettier and displays prettier errors as
+          ESLint errors. Make sure this is always the last configuration
+          in the extends array.
         */
         'plugin:prettier/recommended',
       ],
@@ -91,8 +116,13 @@ module.exports = {
       // @typescript-eslint/parser and prettier rules go here
       rules: {
         'prettier/prettier': ['error'],
+        // https://github.com/prettier/eslint-config-prettier#max-len
+        'max-len': ['error', { code: 80, ignoreUrls: true }],
         // https://stackoverflow.com/questions/44939304/eslint-should-be-listed-in-the-projects-dependencies-not-devdependencies
-        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'import/no-extraneous-dependencies': [
+          'error',
+          { devDependencies: true },
+        ],
       },
     },
   ],

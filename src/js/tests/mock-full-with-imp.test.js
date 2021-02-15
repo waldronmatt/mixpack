@@ -1,10 +1,17 @@
 import { ComplexMath } from './ComplexMath';
 
-// The docs say this variable needs to be called "mock..."
-// If you get "ReferenceError: ... is not defined" you can use "var" instead of "const"
+/*
+  The docs say this variable needs to be called "mock..."
+  If you get "ReferenceError: ... is not defined"
+  you can use "var" instead of "const"
+*/
 const mockSum = jest.fn(() => 8);
 
-// Can't be arrow function if tsconfig target > es5: BasicMath_1.BasicMath is not a constructor
+/*
+  Can't be arrow function if tsconfig target > es5:
+  BasicMath_1.BasicMath is not a constructor
+*/
+
 // jest.mock('./BasicMath', () => ({
 //   BasicMath: () => ({ sum: mockSum }),
 // }));

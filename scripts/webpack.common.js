@@ -3,18 +3,20 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
-const commonConfig = (isProduction) => {
-  const capitilizeFirstLetterOfWord = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+const commonConfig = isProduction => {
+  const capitilizeFirstLetterOfWord = word =>
+    word.charAt(0).toUpperCase() + word.slice(1);
 
   // feed an array of page names to dynamically generate pages with attributes
-  const multipleHtmlWebPackPlugins = ['index', 'test', '404'].map((name) => {
+  const multipleHtmlWebPackPlugins = ['index', 'test', '404'].map(name => {
     return new HtmlWebPackPlugin({
       filename: `${name}.html`,
       title: `${capitilizeFirstLetterOfWord(name)} | Mixpack`,
       template: `./src/views/${name}.html`,
       excludeChunks: ['server'],
       meta: {
-        description: 'A mixed TypeScript/JavaScript Webpack boilerplate with Express.',
+        description:
+          'A mixed TypeScript/JavaScript Webpack boilerplate with Express.',
         keywords: 'webpack, express, typescript, javascript',
         viewport: 'width=device-width',
       },
