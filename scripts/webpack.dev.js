@@ -11,9 +11,6 @@ const developmentConfig = {
   devServer: {
     /*
       We're using chokidar to watch for html files so reloading can occur automatically.
-      Why use this method?
-      - webpack-live-reload does not support Webpack 5 as of 11/2020
-      - webpack-dev-server uses chokidar internally so we don't have to install an extra dependency
       https://stackoverflow.com/questions/52322913/webpack-4-devserver-hmr-plus-full-reload-on-other-file-changes-like-views
     */
     before(app, server) {
@@ -21,27 +18,23 @@ const developmentConfig = {
         server.sockWrite(server.sockets, 'content-changed');
       });
     },
-    /*
-      Tells dev-server to suppress messages like the webpack bundle information.
-      Errors and warnings will still be shown.
-    */
+    // tells dev-server to suppress messages like the webpack bundle information.
     noInfo: true,
+    // shows a full-screen overlay in the browser when there are compiler errors or warnings.
+    overlay: {
+      errors: true,
+      warnings: false,
+    },
     // use a rewrite for our 404 page to simulate express logic
     historyApiFallback: {
       rewrites: [{ from: /./, to: '/404.html' }],
     },
     // bundled files will be available in the browser under this path.
     publicPath: '/',
-    // tell the server where to serve content from (publicPath takes precedence)
-    contentBase: path.resolve(__dirname, '../dist'),
-    // open the browser after server starts
-    // open: true,
     // enable webpack's Hot Module Replacement feature
     hot: true,
     // specify a port number to listen for requests on:
     port: 8080,
-    // useful for debugging
-    // writeToDisk: true,
   },
   plugins: [
     new HtmlValidatePlugin({
@@ -53,6 +46,23 @@ const developmentConfig = {
     }),
     new StylelintPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProgressPlugin({
+      /*
+        We recommend using percentBy: 'entries' setting for projects with multiple configured entry points.
+        Percentage calculation will become more accurate because the amount of entry points is known in advance.
+      */
+      percentBy: 'entries',
+      // print progress messages
+      handler(percentage, message) {
+        let percentComplete = percentage * 100;
+        percentComplete === 100
+          ? console.log('Complete!')
+          : // so we don't get a lot of progress output
+          percentComplete % 5 === 0
+          ? console.log(`${percentComplete}% ${message}`)
+          : null;
+      },
+    }),
   ],
 };
 

@@ -25,6 +25,11 @@ const commonConfig = isProduction => {
   });
 
   return {
+    /*
+      DO NOT REMOVE: Solves for hmr issue with browserlist
+      https://github.com/webpack/webpack-dev-server/issues/2758
+    */
+    target: 'web',
     entry: {
       main: ['./src/js/index.js', './src/ts/index.ts'],
       // webpack code splitting example file
@@ -73,10 +78,6 @@ const commonConfig = isProduction => {
         },
       ],
     },
-    // change defaults to resolve both ts and js files
-    resolve: {
-      extensions: ['.ts', '.js'],
-    },
     plugins: [
       new PreloadWebpackPlugin({
         rel: 'preload',
@@ -98,9 +99,6 @@ const commonConfig = isProduction => {
         logo: path.resolve(__dirname, '../src/logo.png'),
       }),
     ].concat(multipleHtmlWebPackPlugins),
-    performance: {
-      hints: 'warning',
-    },
   };
 };
 

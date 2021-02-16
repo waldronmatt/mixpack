@@ -34,10 +34,10 @@ module.exports = {
           */
         corejs: require('core-js/package.json').version,
         /*
-            output logging to see the plugins and polyfills preset-env applies
-            based on the .browserlistrc config
-          */
-        debug: true,
+          output logging to see the plugins and polyfills preset-env applies
+          based on the .browserlistrc config
+        */
+        // debug: true,
         // exlude transformations that make code slower
         exclude: ['transform-typeof-symbol'],
         /*
