@@ -12,4 +12,4 @@ Firefox ESR
 iOS >= 10
 Safari >= 10
 Android >= 6
-IE 11
+not Explorer <= 11

@@ -38,24 +38,6 @@ const commonConfig = isProduction => {
     output: {
       // output directory as an absolute path.
       path: path.join(__dirname, '../dist'),
-      /*
-        There's a bug with Webpack 5 not transpiling code that is IE11 digestible
-        https://github.com/webpack/webpack/issues/11876
-        We need to specify features to disable manually for a correct bundle output
-        https://webpack.js.org/configuration/output/#outputenvironment
-      */
-      environment: {
-        // the environment supports arrow functions ('() => { ... }').
-        arrowFunction: false,
-        // the environment supports const and let for variable declarations.
-        const: false,
-        // the environment supports destructuring ('{ a, b } = obj').
-        destructuring: false,
-        // the environment supports an async import() function to import EcmaScript modules.
-        dynamicImport: false,
-        // the environment supports ECMAScript Module syntax to import ECMAScript modules (import ... from '...').
-        module: false,
-      },
     },
     module: {
       rules: [
