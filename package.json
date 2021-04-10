@@ -43,7 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "@waldronmatt/prettier-config": "^1.0.3",
-    "@waldronmatt/webpack-config": "^1.5.0",
+    "@waldronmatt/webpack-config": "^1.6.2",
     "babel-jest": "^26.5.2",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",

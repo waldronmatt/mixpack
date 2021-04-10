@@ -39,27 +39,6 @@ const commonConfig = isProduction => {
       // output directory as an absolute path.
       path: path.join(__dirname, '../dist'),
     },
-    module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader',
-            },
-            {
-              loader: 'ts-loader',
-              options: {
-                // improve the build time
-                transpileOnly: true,
-                experimentalWatchApi: true,
-              },
-            },
-          ],
-        },
-      ],
-    },
     plugins: [
       new PreloadWebpackPlugin({
         rel: 'preload',
