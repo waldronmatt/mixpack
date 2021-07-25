@@ -100,4 +100,4 @@ MIT
 - Ben Grunfeld's [Expack](https://github.com/bengrunfeld/expack)
 - Amina's [Jest mock examples](https://github.com/BulbEnergy/jest-mock-examples)
 - Mark Tse's [Netlify Express](https://github.com/neverendingqs/netlify-express)
-- Hugo Giraudel's [Sass Boilerplate](https://github.com/HugoGiraudel/sass-boilerplate)
+- Kitty Giraudel's [Sass Boilerplate](https://github.com/KittyGiraudel/sass-boilerplate)
