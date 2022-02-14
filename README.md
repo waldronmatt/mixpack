@@ -1,5 +1,7 @@
 # MixPack
 
+## **Note**: For future updates, please see [Webpack Template](https://github.com/waldronmatt/webpack-template) - a new, updated version of Mixpack with a simplified file structure and better management of project dependencies.
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/11c9fc21-e526-4b67-936e-f8910deac22b/deploy-status)](https://app.netlify.com/sites/mixpack/deploys) ![webpack](https://img.shields.io/badge/webpack-5.21.2-green)
 
 A mixed TypeScript/JavaScript Webpack boilerplate with Express. [Click here to see it live on Netlify](https://mixpack.netlify.app).
